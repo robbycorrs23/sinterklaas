@@ -10,7 +10,7 @@ let homesRemaining = 0;
 let timeSecs = 0;
 
 export default function Main() {
-    const [intervalId, setIntervalId] = useState(false)
+    const [intervalId, setIntervalId] = useState(false) // previously setIntervalId was declared but not used. The StackOverflow solution said to put it above the `else` below
     // const [homesDisplay, setHomesDisplay] = useState(200)
     const [totalHomes, setTotalHomes] = useState(0)
 
@@ -39,7 +39,8 @@ export default function Main() {
                 timeSecs += 1
                 stopSanta()
             }, 1000);
-            setIntervalId(interval);
+            // Chris - I added below line from the stack overflow.
+            setIntervalId(interval); 
         } else {
             alert("Please enter value for target # of homes!")
         }
@@ -51,7 +52,7 @@ export default function Main() {
          }
     }
 
-    // Chris - Why doesn't stop button clearInterval as stopSanta does? //
+    // Chris - added stop button from StackOverflow solution. Passing intervalId and not interval as above for stopSanta. No idea why ;) State? //
     const stopBtn = () => clearInterval(intervalId) 
     // ---------------------------------------------- //
 
@@ -61,8 +62,8 @@ export default function Main() {
     }
     
     return (
-    /* --- BACKGROUND - problems!!! --- */
-        // <div className="bg">
+    /* --- BACKGROUND - problems!!! Something different about CRA and Tailwind I think --- */
+        
         /* <div class="bg-star-bgImg-kai-pilger-unsplash w-full h-full bg-no-repeat bg-cover"> */
 
             /* --- OUTER Screen --- */
@@ -81,6 +82,8 @@ export default function Main() {
                         <div class="text-gray-300 mt-1 mb-2">Calories Tonight</div>
                         <div id="santa-calories" class="mb-2 font-mono text-white">{calorieCount < 0 ? 0 : calorieCount}</div> 
                     </div>
+
+                    {/* --- Milk Cookies and Carrot Tea are missing calculations in the JS --- */}
                     <div class="flex flex-col items-center border-dashed border-b-2 border-r-2 border-blue-400">
                         <div class="text-gray-300 mt-1 mb-2">Milk / Cookies</div>
                         <div id="total-milk-cookies" class=" mb-2 font-mono text-white">???</div> 
@@ -89,6 +92,7 @@ export default function Main() {
                         <div class="text-gray-300 mt-1 mb-2">Tea / Carrots</div>
                         <div id="total-carrots-tea" class="mb-2 font-mono text-white">???</div> 
                     </div>
+                    {/* --- Milk Cookies and Carrot Tea are missing calculations in the JS --- */}
                     
                     <div class="flex flex-col items-center border-dashed border-b-2 border-r-2 border-blue-400">
                         <div class="text-gray-300 mt-1 mb-2">Homes Visited</div>
@@ -118,15 +122,16 @@ export default function Main() {
                             {/* {intervalId ? "Stop counting" : "Start counting"} */}
                         </button>
 
-                        {/* Chris - Why doesn't Stop Button work? */}
+                        {/* Chris - new Stop Button */}
                         <button class="w-10 h-10 ml-2 bg-gradient-radial rounded-full from-gray-800 via-red-800 to-red-900 text-gray-100 opacity-90 text-xs"
                             onClick={stopBtn}
                             >
                             Stop
                         </button>
-                        {/* // -------------------------------- // */}
                             
                     </div>
+
+                    {/* --- INPUT - has styling issues. Flex not working same for me as was in Vanilla set-up --- */}
 
                     {/* <input id="santa-home-target" aria-label="Input House Target for the Night" type="text" placeholder="House Target" class="mx-2 italic text-xs text-center text-gray-200 placeholder:text-gray-400 bg-gray-800 border border-gray-300 rounded-full focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"> */}
                     <InputGroup className="mt-2">
@@ -142,16 +147,10 @@ export default function Main() {
                 </InputGroup>
                 </div>
                 
-               
-            
-            
-            
-    
-
             </container>
             </div>
             /* --- END outer screen --- */
         
-        // </div>
+        // </div> /* --- div for Background Img --- */
       );
 }
