@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import InputGroup from 'react-bootstrap/InputGroup'
 import Form from 'react-bootstrap/Form'
+// import stars from 'public/images/star-bgImg-kai-pilger-unsplash.jpeg'
 
 let calorieCount = 0;
 const cookiesMilk = 15;
@@ -8,6 +9,8 @@ const carrotsTea = -10;
 let currentSpeed = 10;
 let homesRemaining = 0;
 let timeSecs = 0;
+let cookieMilkCount = 0;
+let carrotTeaCount = 0;
 
 export default function Main() {
     const [intervalId, setIntervalId] = useState(false) // previously setIntervalId was declared but not used. The StackOverflow solution said to put it above the `else` below
@@ -31,9 +34,10 @@ export default function Main() {
                                 Math.round(Math.random()) === 1 && calorieCount > 4750 ? Math.floor(cookiesMilk * 0.5) :
                                     carrotsTea
                         )
-                        .reduce((acc, cur) => acc + cur);
+                nextTen.forEach(item => item === cookiesMilk ? cookieMilkCount += 1: item === carrotsTea ? carrotTeaCount += 1: null)
+                const arrTotal = nextTen.reduce((acc, cur) => acc + cur);
                 
-                calorieCount += nextTen;
+                calorieCount += arrTotal;
                 setTotalHomes(prev => prev += currentSpeed);
                 homesRemaining -= currentSpeed
                 timeSecs += 1
@@ -59,63 +63,63 @@ export default function Main() {
     const handleChange = (e) => {
         e.preventDefault();
         homesRemaining = e.target.value
+        e.target.value = ''
     }
     
     return (
     /* --- BACKGROUND - problems!!! Something different about CRA and Tailwind I think --- */
         
-        /* <div class="bg-star-bgImg-kai-pilger-unsplash w-full h-full bg-no-repeat bg-cover"> */
+        <div className="m-0">
 
-            /* --- OUTER Screen --- */
-            <div class="max-w-xs md:max-w-md min-h-96 mx-auto my-5 bg-gray-800 border-2 border-blue-500 rounded-2xl">
-            <container class="rounded">
+            {/* --- OUTER Screen --- */}
+            <div className="max-w-xs md:max-w-md min-h-96 mx-auto my-5 bg-gray-800 border-2 border-blue-500 rounded-2xl">
+            <container className="rounded">
 
                 {/* --- INNER Screen --- */}
           
-                <div class="m-4 p-3 bg-slate-800 border-2 border-blue-400 rounded-2xl grid grid-cols-2 gap-2 text-xs text-gray-300">
+                <div className="m-4 p-3 bg-slate-800 border-2 border-blue-400 rounded-2xl grid grid-cols-2 gap-2 text-xs text-gray-300">
                     
-                    <div class="flex flex-col items-center border-dashed border-b-2 border-r-2 border-blue-400">
-                        <div class="text-gray-300 mt-1 mb-2">Calorie Target</div> 
-                        <div class="font-mono text-white mb-2">{calorieTarget}</div> 
+                    <div className="flex flex-col items-center border-dashed border-b-2 border-r-2 border-blue-400">
+                        <div className="text-gray-300 mt-1 mb-2">Calorie Target</div> 
+                        <div className="font-mono text-white mb-2">{calorieTarget}</div> 
                     </div>
-                    <div class="flex flex-col items-center border-dashed border-b-2 border-blue-400">
-                        <div class="text-gray-300 mt-1 mb-2">Calories Tonight</div>
+                    <div className="flex flex-col items-center border-dashed border-b-2 border-blue-400">
+                        <div className="text-gray-300 mt-1 mb-2">Calories Tonight</div>
                         <div id="santa-calories" class="mb-2 font-mono text-white">{calorieCount < 0 ? 0 : calorieCount}</div> 
                     </div>
 
-                    {/* --- Milk Cookies and Carrot Tea are missing calculations in the JS --- */}
-                    <div class="flex flex-col items-center border-dashed border-b-2 border-r-2 border-blue-400">
-                        <div class="text-gray-300 mt-1 mb-2">Milk / Cookies</div>
-                        <div id="total-milk-cookies" class=" mb-2 font-mono text-white">???</div> 
+                    <div className="flex flex-col items-center border-dashed border-b-2 border-r-2 border-blue-400">
+                        <div className="text-gray-300 mt-1 mb-2">Milk / Cookies</div>
+                        <div id="total-milk-cookies" class=" mb-2 font-mono text-white">{cookieMilkCount}</div> 
                     </div>
-                    <div class="flex flex-col items-center border-dashed border-b-2 border-blue-400">
-                        <div class="text-gray-300 mt-1 mb-2">Tea / Carrots</div>
-                        <div id="total-carrots-tea" class="mb-2 font-mono text-white">???</div> 
+                    <div className="flex flex-col items-center border-dashed border-b-2 border-blue-400">
+                        <div className="text-gray-300 mt-1 mb-2">Tea / Carrots</div>
+                            <div id="total-carrots-tea" class="mb-2 font-mono text-white">{carrotTeaCount}</div>
                     </div>
                     {/* --- Milk Cookies and Carrot Tea are missing calculations in the JS --- */}
                     
-                    <div class="flex flex-col items-center border-dashed border-b-2 border-r-2 border-blue-400">
-                        <div class="text-gray-300 mt-1 mb-2">Homes Visited</div>
+                    <div className="flex flex-col items-center border-dashed border-b-2 border-r-2 border-blue-400">
+                        <div className="text-gray-300 mt-1 mb-2">Homes Visited</div>
                         <div id="homes-visited" class="mb-2 font-mono text-white">{totalHomes}</div> 
                     </div>
-                    <div class="flex flex-col items-center border-dashed border-b-2 border-blue-400">
-                        <div class="text-gray-300 mt-1 mb-2">Homes Remaining</div>
+                    <div className="flex flex-col items-center border-dashed border-b-2 border-blue-400">
+                        <div className="text-gray-300 mt-1 mb-2">Homes Remaining</div>
                         <div id="homes-remaining" class="mb-2 font-mono text-white">{interval ? "0" : homesRemaining}</div> 
                     </div>
-                    <div class="flex flex-col items-center border-dashed border-b-2 border-r-2 border-blue-400">
-                        <div class="text-gray-300 mt-1 mb-2">Delivery Speed</div>
+                    <div className="flex flex-col items-center border-dashed border-b-2 border-r-2 border-blue-400">
+                        <div className="text-gray-300 mt-1 mb-2">Delivery Speed</div>
                         <div id="homes-per-second" class="mb-2 font-mono text-white">{currentSpeed}</div> 
                     </div>
-                    <div class="flex flex-col items-center border-dashed border-b-2 border-blue-400">
-                        <div class="text-gray-300 mt-1 mb-2">Total Time</div>
+                    <div className="flex flex-col items-center border-dashed border-b-2 border-blue-400">
+                        <div className="text-gray-300 mt-1 mb-2">Total Time</div>
                         <div id="time-ms" class="mb-2 font-mono text-white">{timeSecs}</div>
                     </div>
                 </div>
 
                 {/* --- Buttons & Input --- */}
-                <div class="max-w-xs mx-4 mb-3 grid grid-cols-2">
-                    <div class="flex justify-center mx-4">
-                        <button class="w-10 h-10 mr-2 bg-gradient-radial from-gray-800 via-green-800 to-green-900 rounded-full text-gray-100 opacity-90 text-xs"
+                <div className="max-w-xs mx-4 mb-3 grid grid-cols-2">
+                    <div className="flex justify-center mx-4">
+                        <button className="w-10 h-10 mr-2 bg-gradient-radial from-gray-800 via-green-800 to-green-900 rounded-full text-gray-100 opacity-90 text-xs"
                             onClick={handleClick}
                             >
                             Start
@@ -123,7 +127,7 @@ export default function Main() {
                         </button>
 
                         {/* Chris - new Stop Button */}
-                        <button class="w-10 h-10 ml-2 bg-gradient-radial rounded-full from-gray-800 via-red-800 to-red-900 text-gray-100 opacity-90 text-xs"
+                        <button className="w-10 h-10 ml-2 bg-gradient-radial rounded-full from-gray-800 via-red-800 to-red-900 text-gray-100 opacity-90 text-xs"
                             onClick={stopBtn}
                             >
                             Stop
@@ -133,7 +137,7 @@ export default function Main() {
 
                     {/* --- INPUT - has styling issues. Flex not working same for me as was in Vanilla set-up --- */}
 
-                    {/* <input id="santa-home-target" aria-label="Input House Target for the Night" type="text" placeholder="House Target" class="mx-2 italic text-xs text-center text-gray-200 placeholder:text-gray-400 bg-gray-800 border border-gray-300 rounded-full focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"> */}
+                    {/* <input id="santa-home-target" aria-label="Input House Target for the Night" type="text" placeholder="House Target" className="mx-2 italic text-xs text-center text-gray-200 placeholder:text-gray-400 bg-gray-800 border border-gray-300 rounded-full focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"> */}
                     <InputGroup className="mt-2">
                     {/* <InputGroup.Text id="basic-addon1">Target</InputGroup.Text> */}
                     <Form.Control
@@ -149,8 +153,8 @@ export default function Main() {
                 
             </container>
             </div>
-            /* --- END outer screen --- */
+            {/* --- END outer screen --- */}
         
-        // </div> /* --- div for Background Img --- */
+        </div>
       );
 }

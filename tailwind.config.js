@@ -12,6 +12,7 @@
 //   plugins: [],
 // }
 
+
 // from CHRIS - revert purge by all means, but keep theme changes
 console.log(process.env.NODE_ENV)
 const purge = process.env.NODE_ENV === 'production' ? true : false;
@@ -27,7 +28,7 @@ module.exports = {
     
     extend: {
       backgroundImage: {
-        // 'star-bgImg-kai-pilger-unsplash': "url('../images/star-bgImg-kai-pilger-unsplash.jpeg')",
+        // 'stars': "url('/public/images/star-bgImg-kai-pilger-unsplash.jpeg')",
         'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))', 
         'gradient-radial-at-t': 'radial-gradient(ellipse at top, var(--tw-gradient-stops))', 
         'gradient-radial-at-b': 'radial-gradient(ellipse at bottom, var(--tw-gradient-stops))', 
