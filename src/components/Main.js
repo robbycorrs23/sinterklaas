@@ -63,7 +63,6 @@ export default function Main() {
     const handleChange = (e) => {
         e.preventDefault();
         homesRemaining = e.target.value
-        e.target.value = ''
     }
     
     return (
