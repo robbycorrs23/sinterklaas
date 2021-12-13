@@ -1,27 +1,9 @@
-// ORIGINAL
-// module.exports = {
-//   purge: [],
-//   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-//   darkMode: false, // or 'media' or 'class'
-//   theme: {
-//     extend: {},
-//   },
-//   variants: {
-//     extend: {},
-//   },
-//   plugins: [],
-// }
-
-
-// from CHRIS - revert purge by all means, but keep theme changes
-console.log(process.env.NODE_ENV)
-const purge = process.env.NODE_ENV === 'production' ? true : false;
-
 const { lightBlue } = require('tailwindcss/colors');
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  purge: { enabled: purge, content:['./build/**/*.html'] },
+  purge: [],
+  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     colors: colors,
