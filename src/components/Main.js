@@ -67,16 +67,20 @@ export default function Main() {
     
     return (
     /* --- BACKGROUND - problems!!! Something different about CRA and Tailwind I think --- */
+
+    //  --- MEDIA QUERIES - PORTRAIT: mobile w:470px / sm:640px / lg:1024px / xl:1280px ---
+    //                      LANDSCAPE: 
+    // ------------------------------------------------------------------------------------
         
         <div className="m-0 flex items-center justify-center h-screen">
             
 
             {/* --- OUTER Screen --- */}
-            <div className="w-[500px] h-2/3 sm:w-4/5 sm:h-4/5 mx-auto my-6 bg-gray-800 border border-blue-400 rounded-2xl">
+            <div className="w-[470px] sm:w-3/5 sm:h-3/4 m-3 bg-gray-800 border border-blue-400 rounded-2xl">
             <container className="rounded">
             
                 {/* --- Buttons - Change Screen --- */}
-                <div className="mx-4 my-3 flex justify-evenly">
+                <div className="mx-4 my-2 sm:my-6 flex justify-evenly">
                     
                         {/* --- metrics --- */}
                         <button className="text-gray-200"> <i class="fas fa-chart-line fa-lg"></i></button>
@@ -87,44 +91,44 @@ export default function Main() {
 
                 {/* --- INNER Screen --- */}
           
-                <div className="m-4 p-3 bg-slate-800 border border-blue-400 rounded-2xl grid grid-cols-2 text-sm text-gray-300">
+                <div className="my-3 mx-4 sm:m-6 p-3 bg-slate-800 border border-blue-400 rounded-2xl grid grid-cols-2 text-sm sm:text-base text-gray-300">
                     
                     <div className="flex flex-col items-center border-dashed border-b border-r border-blue-400">
-                        <div className="text-gray-300 mt-2 mb-4">Calorie Target</div> 
-                        <div className="font-mono text-white text-base mb-4">{calorieTarget}</div> 
+                        <div className="text-gray-300 mt-2 mb-2">Calorie Target</div> 
+                        <div className="font-mono text-white text-base sm:text-lg mb-3">{calorieTarget}</div> 
                     </div>
                     <div className="flex flex-col items-center border-dashed border-b border-blue-400">
-                        <div className="text-gray-300 mt-2 mb-4">Calories Tonight</div>
-                        <div id="santa-calories" class="mb-4 font-mono text-white text-base">{calorieCount < 0 ? 0 : calorieCount}</div> 
+                        <div className="text-gray-300 mt-2 mb-2">Calories Tonight</div>
+                        <div id="santa-calories" class="mb-4 font-mono text-white text-base sm:text-lg">{calorieCount < 0 ? 0 : calorieCount}</div> 
                     </div>
                     <div className="flex flex-col items-center border-dashed border-b border-r border-blue-400">
-                        <div className="text-gray-300 mt-2 mb-4">Milk / Cookies</div>
-                        <div id="total-milk-cookies" class=" mb-4 font-mono text-white text-base">{cookieMilkCount}</div> 
+                        <div className="text-gray-300 mt-2 mb-2">Milk / Cookies</div>
+                        <div id="total-milk-cookies" class=" mb-3 font-mono text-white text-base sm:text-lg">{cookieMilkCount}</div> 
                     </div>
                     <div className="flex flex-col items-center border-dashed border-b border-blue-400">
-                        <div className="text-gray-300 mt-2 mb-4">Tea / Carrots</div>
-                            <div id="total-carrots-tea" class="mb-4 font-mono text-white text-base">{carrotTeaCount}</div>
+                        <div className="text-gray-300 mt-2 mb-2">Tea / Carrots</div>
+                            <div id="total-carrots-tea" class="mb-3 font-mono text-white text-base sm:text-lg">{carrotTeaCount}</div>
                     </div>                    
                     <div className="flex flex-col items-center border-dashed border-b border-r border-blue-400">
-                        <div className="text-gray-300 mt-2 mb-4">Homes Visited</div>
-                        <div id="homes-visited" class="mb-4 font-mono text-white text-base">{totalHomes}</div> 
+                        <div className="text-gray-300 mt-2 mb-2">Homes Visited</div>
+                        <div id="homes-visited" class="mb-3 font-mono text-white text-base sm:text-lg">{totalHomes}</div> 
                     </div>
                     <div className="flex flex-col items-center border-dashed border-b border-blue-400">
-                        <div className="text-gray-300 mt-2 mb-4">Homes Remain</div>
-                        <div id="homes-remaining" class="mb-4 font-mono text-white text-base">{interval ? "0" : homesRemaining}</div> 
+                        <div className="text-gray-300 mt-2 mb-2">Homes Remain</div>
+                        <div id="homes-remaining" class="mb-3 font-mono text-white text-base sm:text-lg">{interval ? "0" : homesRemaining}</div> 
                     </div>
                     <div className="flex flex-col items-center border-dashed border-r border-blue-400">
-                        <div className="text-gray-300 mt-2 mb-4">Delivery Speed</div>
-                        <div id="homes-per-second" class="mb-4 font-mono text-white text-base">{currentSpeed} h/s</div> 
+                        <div className="text-gray-300 mt-2 mb-2">Delivery Speed</div>
+                        <div id="homes-per-second" class="mb-3 font-mono text-white text-base sm:text-lg">{currentSpeed} h/s</div> 
                     </div>
                     <div className="flex flex-col items-center border-dashed border-blue-400">
-                        <div className="text-gray-300 mt-2 mb-4">Total Time</div>
-                        <div id="time-ms" class="mb-4 font-mono text-white text-base">{timeSecs}</div>
+                        <div className="text-gray-300 mt-2 mb-2">Total Time</div>
+                        <div id="time-ms" class="mb-3 font-mono text-white text-base sm:text-lg">{timeSecs}</div>
                     </div>
                 </div>
 
                 {/* --- Buttons & Input --- */}
-                <div className="mx-4 my-6 grid grid-cols-2 justify-items-center items-center">
+                <div className="mx-4 my-4 grid grid-cols-2 justify-items-center items-center">
                     <div className="flex justify-center mx-4">
                         <button className="w-10 h-10 mr-2 bg-gradient-radial from-gray-800 via-green-800 to-green-900 rounded-full text-gray-100 opacity-90 text-xs"
                             onClick={handleClick}
