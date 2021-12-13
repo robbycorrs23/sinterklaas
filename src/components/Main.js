@@ -72,7 +72,7 @@ export default function Main() {
             
 
             {/* --- OUTER Screen --- */}
-            <div className="w-[600px] h-3/5 sm:w-4/5 sm:h-4/5 mt-0 mx-auto my-5 bg-gray-800 border border-blue-400 rounded-2xl">
+            <div className="w-[500px] h-2/3 sm:w-4/5 sm:h-4/5 mx-auto my-6 bg-gray-800 border border-blue-400 rounded-2xl">
             <container className="rounded">
             
                 {/* --- Buttons - Change Screen --- */}
@@ -90,41 +90,41 @@ export default function Main() {
                 <div className="m-4 p-3 bg-slate-800 border border-blue-400 rounded-2xl grid grid-cols-2 text-sm text-gray-300">
                     
                     <div className="flex flex-col items-center border-dashed border-b border-r border-blue-400">
-                        <div className="text-gray-300 mt-1 mb-2">Calorie Target</div> 
-                        <div className="font-mono text-white text-base mb-2">{calorieTarget}</div> 
+                        <div className="text-gray-300 mt-2 mb-4">Calorie Target</div> 
+                        <div className="font-mono text-white text-base mb-4">{calorieTarget}</div> 
                     </div>
                     <div className="flex flex-col items-center border-dashed border-b border-blue-400">
-                        <div className="text-gray-300 mt-1 mb-2">Calories Tonight</div>
-                        <div id="santa-calories" class="mb-2 font-mono text-white text-base">{calorieCount < 0 ? 0 : calorieCount}</div> 
+                        <div className="text-gray-300 mt-2 mb-4">Calories Tonight</div>
+                        <div id="santa-calories" class="mb-4 font-mono text-white text-base">{calorieCount < 0 ? 0 : calorieCount}</div> 
                     </div>
                     <div className="flex flex-col items-center border-dashed border-b border-r border-blue-400">
-                        <div className="text-gray-300 mt-1 mb-2">Milk / Cookies</div>
-                        <div id="total-milk-cookies" class=" mb-2 font-mono text-white text-base">{cookieMilkCount}</div> 
+                        <div className="text-gray-300 mt-2 mb-4">Milk / Cookies</div>
+                        <div id="total-milk-cookies" class=" mb-4 font-mono text-white text-base">{cookieMilkCount}</div> 
                     </div>
                     <div className="flex flex-col items-center border-dashed border-b border-blue-400">
-                        <div className="text-gray-300 mt-1 mb-2">Tea / Carrots</div>
-                            <div id="total-carrots-tea" class="mb-2 font-mono text-white text-base">{carrotTeaCount}</div>
+                        <div className="text-gray-300 mt-2 mb-4">Tea / Carrots</div>
+                            <div id="total-carrots-tea" class="mb-4 font-mono text-white text-base">{carrotTeaCount}</div>
                     </div>                    
                     <div className="flex flex-col items-center border-dashed border-b border-r border-blue-400">
-                        <div className="text-gray-300 mt-1 mb-2">Homes Visited</div>
-                        <div id="homes-visited" class="mb-2 font-mono text-white text-base">{totalHomes}</div> 
+                        <div className="text-gray-300 mt-2 mb-4">Homes Visited</div>
+                        <div id="homes-visited" class="mb-4 font-mono text-white text-base">{totalHomes}</div> 
                     </div>
                     <div className="flex flex-col items-center border-dashed border-b border-blue-400">
-                        <div className="text-gray-300 mt-1 mb-2">Homes Remain</div>
-                        <div id="homes-remaining" class="mb-2 font-mono text-white text-base">{interval ? "0" : homesRemaining}</div> 
+                        <div className="text-gray-300 mt-2 mb-4">Homes Remain</div>
+                        <div id="homes-remaining" class="mb-4 font-mono text-white text-base">{interval ? "0" : homesRemaining}</div> 
                     </div>
                     <div className="flex flex-col items-center border-dashed border-r border-blue-400">
-                        <div className="text-gray-300 mt-1 mb-2">Delivery Speed</div>
-                        <div id="homes-per-second" class="mb-2 font-mono text-white text-base">{currentSpeed} h/s</div> 
+                        <div className="text-gray-300 mt-2 mb-4">Delivery Speed</div>
+                        <div id="homes-per-second" class="mb-4 font-mono text-white text-base">{currentSpeed} h/s</div> 
                     </div>
                     <div className="flex flex-col items-center border-dashed border-blue-400">
-                        <div className="text-gray-300 mt-1 mb-2">Total Time</div>
-                        <div id="time-ms" class="mb-2 font-mono text-white text-base">{timeSecs}</div>
+                        <div className="text-gray-300 mt-2 mb-4">Total Time</div>
+                        <div id="time-ms" class="mb-4 font-mono text-white text-base">{timeSecs}</div>
                     </div>
                 </div>
 
                 {/* --- Buttons & Input --- */}
-                <div className="mx-4 mb-3 grid grid-cols-2 justify-items-center">
+                <div className="mx-4 my-6 grid grid-cols-2 justify-items-center items-center">
                     <div className="flex justify-center mx-4">
                         <button className="w-10 h-10 mr-2 bg-gradient-radial from-gray-800 via-green-800 to-green-900 rounded-full text-gray-100 opacity-90 text-xs"
                             onClick={handleClick}
@@ -145,7 +145,7 @@ export default function Main() {
                     {/* --- INPUT - has styling issues. Flex not working same for me as was in Vanilla set-up --- */}
 
                     {/* <input id="santa-home-target" aria-label="Input House Target for the Night" type="text" placeholder="House Target" className="mx-2 italic text-xs text-center text-gray-200 placeholder:text-gray-400 bg-gray-800 border border-gray-300 rounded-full focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"> */}
-                    <InputGroup className="mt-2">
+                    <InputGroup className="">
                     {/* <InputGroup.Text id="basic-addon1">Target</InputGroup.Text> */}
                     <Form.Control
                         className="italic py-1 text-xs text-center text-gray-200 placeholder:text-gray-400 bg-gray-800 border border-gray-300 rounded-full focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
