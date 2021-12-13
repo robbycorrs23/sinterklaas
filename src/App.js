@@ -8,7 +8,7 @@ export default function App() {
      
     
     return (
-        <div className="m-0 bg-black w-screen h-screen">
+        <div style={{ backgroundImage: `url(./images/star-bgImg-kai-pilger-unsplash.jpeg)` }} className="my-0 mx-auto">
             <Main />
         </div>
     )

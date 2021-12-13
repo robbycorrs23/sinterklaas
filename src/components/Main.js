@@ -68,48 +68,57 @@ export default function Main() {
     return (
     /* --- BACKGROUND - problems!!! Something different about CRA and Tailwind I think --- */
         
-        <div className="m-0">
+        <div className="m-0 flex items-center justify-center h-screen">
+            
 
             {/* --- OUTER Screen --- */}
-            <div className="max-w-xs md:max-w-md min-h-96 mx-auto my-5 bg-gray-800 border-2 border-blue-500 rounded-2xl">
+            <div className="max-w-xs md:max-w-md min-h-96 mt-0 mx-auto my-5 bg-gray-800 border border-blue-400 rounded-2xl">
             <container className="rounded">
+            
+                {/* --- Buttons - Change Screen --- */}
+                <div className="max-w-xs mx-4 my-3 flex justify-evenly">
+                    
+                        {/* --- metrics --- */}
+                        <button className="text-gray-200"> <i class="fas fa-chart-line"></i></button>
+                        {/* --- JSON list --- */}
+                        <button className="text-gray-500"> <i class="far fa-address-book"></i></button>
+                    
+                </div>
 
                 {/* --- INNER Screen --- */}
           
-                <div className="m-4 p-3 bg-slate-800 border-2 border-blue-400 rounded-2xl grid grid-cols-2 gap-2 text-xs text-gray-300">
+                <div className="m-4 p-3 bg-slate-800 border border-blue-400 rounded-2xl grid grid-cols-2 text-xs text-gray-300">
                     
-                    <div className="flex flex-col items-center border-dashed border-b-2 border-r-2 border-blue-400">
+                    <div className="flex flex-col items-center border-dashed border-b border-r border-blue-400">
                         <div className="text-gray-300 mt-1 mb-2">Calorie Target</div> 
                         <div className="font-mono text-white mb-2">{calorieTarget}</div> 
                     </div>
-                    <div className="flex flex-col items-center border-dashed border-b-2 border-blue-400">
+                    <div className="flex flex-col items-center border-dashed border-b border-blue-400">
                         <div className="text-gray-300 mt-1 mb-2">Calories Tonight</div>
                         <div id="santa-calories" class="mb-2 font-mono text-white">{calorieCount < 0 ? 0 : calorieCount}</div> 
                     </div>
 
-                    <div className="flex flex-col items-center border-dashed border-b-2 border-r-2 border-blue-400">
+                    <div className="flex flex-col items-center border-dashed border-b border-r border-blue-400">
                         <div className="text-gray-300 mt-1 mb-2">Milk / Cookies</div>
                         <div id="total-milk-cookies" class=" mb-2 font-mono text-white">{cookieMilkCount}</div> 
                     </div>
-                    <div className="flex flex-col items-center border-dashed border-b-2 border-blue-400">
+                    <div className="flex flex-col items-center border-dashed border-b border-blue-400">
                         <div className="text-gray-300 mt-1 mb-2">Tea / Carrots</div>
                             <div id="total-carrots-tea" class="mb-2 font-mono text-white">{carrotTeaCount}</div>
-                    </div>
-                    {/* --- Milk Cookies and Carrot Tea are missing calculations in the JS --- */}
-                    
-                    <div className="flex flex-col items-center border-dashed border-b-2 border-r-2 border-blue-400">
+                    </div>                    
+                    <div className="flex flex-col items-center border-dashed border-b border-r border-blue-400">
                         <div className="text-gray-300 mt-1 mb-2">Homes Visited</div>
                         <div id="homes-visited" class="mb-2 font-mono text-white">{totalHomes}</div> 
                     </div>
-                    <div className="flex flex-col items-center border-dashed border-b-2 border-blue-400">
+                    <div className="flex flex-col items-center border-dashed border-b border-blue-400">
                         <div className="text-gray-300 mt-1 mb-2">Homes Remaining</div>
                         <div id="homes-remaining" class="mb-2 font-mono text-white">{interval ? "0" : homesRemaining}</div> 
                     </div>
-                    <div className="flex flex-col items-center border-dashed border-b-2 border-r-2 border-blue-400">
+                    <div className="flex flex-col items-center border-dashed border-r border-blue-400">
                         <div className="text-gray-300 mt-1 mb-2">Delivery Speed</div>
                         <div id="homes-per-second" class="mb-2 font-mono text-white">{currentSpeed}</div> 
                     </div>
-                    <div className="flex flex-col items-center border-dashed border-b-2 border-blue-400">
+                    <div className="flex flex-col items-center border-dashed border-blue-400">
                         <div className="text-gray-300 mt-1 mb-2">Total Time</div>
                         <div id="time-ms" class="mb-2 font-mono text-white">{timeSecs}</div>
                     </div>
