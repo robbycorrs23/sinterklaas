@@ -93,9 +93,12 @@ export default function Main() {
                         <div className="text-gray-300 mt-1 mb-2">Calorie Target</div> 
                         <div className="font-mono text-white mb-2">{calorieTarget}</div> 
                     </div>
-                    <div className="flex flex-col items-center border-dashed border-b border-blue-400">
-                        <div className="text-gray-300 mt-1 mb-2">Calories Tonight</div>
-                        <div id="santa-calories" class="mb-2 font-mono text-white">{calorieCount < 0 ? 0 : calorieCount}</div> 
+                    <div className="relative flex flex-col items-center border-dashed border-b border-blue-400">
+                    {calorieCount < 4750 ? <div className="absolute w-5 h-5 -top-1 -right-2 bg-gradient-radial rounded-full from-gray-800 via-red-800 to-red-900 opacity-90">
+                    </div> : <div className="animate-pulse absolute w-5 h-5 -top-1 -right-2 bg-gradient-radial rounded-full from-red-600 via-grey-600 to-red-900 opacity-100">
+                    </div>}
+                    <div className="text-gray-300 mt-1 mb-2">Calories Tonight</div>
+                    <div id="santa-calories" class="mb-2 font-mono text-white">{calorieCount < 0 ? 0 : calorieCount}</div> 
                     </div>
 
                     <div className="flex flex-col items-center border-dashed border-b border-r border-blue-400">
