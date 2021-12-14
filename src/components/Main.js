@@ -76,7 +76,7 @@ export default function Main() {
             
 
             {/* --- OUTER Screen --- */}
-            <div className="w-[470px] sm:w-3/5 sm:h-auto m-3 pb-3 bg-gray-800 border border-blue-400 rounded-2xl">
+            <div className="w-[470px] sm:w-3/5 md:w-1/2 sm:h-auto m-3 pb-3 bg-gray-800 border border-blue-400 rounded-2xl">
             <container className="rounded">
             
                 {/* --- Buttons - Change Screen --- */}
@@ -128,7 +128,7 @@ export default function Main() {
                 </div>
 
                 {/* --- Start/Stop Btn & Input --- */}
-                <div className="mx-4 sm:mt-5 sm:mb-7 sm:mx-6 grid grid-cols-2 justify-items-center items-center">
+                <div className="mx-4 sm:mt-5 sm:mb-4 sm:mx-6 grid grid-cols-2 justify-items-center items-center">
                     
                     {/* --- Buttons --- */}
                     <div className="flex justify-center">
