@@ -76,7 +76,7 @@ export default function Main() {
             
 
             {/* --- OUTER Screen --- */}
-            <div className="w-[470px] sm:w-3/5 sm:h-auto m-3 pb-2 bg-gray-800 border border-blue-400 rounded-2xl">
+            <div className="w-[470px] sm:w-3/5 sm:h-auto m-3 pb-3 bg-gray-800 border border-blue-400 rounded-2xl">
             <container className="rounded">
             
                 {/* --- Buttons - Change Screen --- */}
@@ -91,7 +91,7 @@ export default function Main() {
 
                 {/* --- INNER Screen --- */}
           
-                <div className="my-3 mx-4 sm:m-6 p-3 sm:px-3 sm:py-1 bg-slate-800 border border-blue-400 rounded-2xl grid grid-cols-2 text-sm sm:text-base text-gray-300">
+                <div className="my-3 mx-3 sm:m-6 p-3 sm:px-3 sm:py-1 bg-slate-800 border border-blue-400 rounded-2xl grid grid-cols-2 text-sm sm:text-base text-gray-300">
                     
                     <div className="flex flex-col items-center border-dashed border-b border-r border-blue-400">
                         <div className="text-gray-300 my-2 sm:my-3">Calorie Target</div> 
@@ -127,10 +127,12 @@ export default function Main() {
                     </div>
                 </div>
 
-                {/* --- Buttons & Input --- */}
-                <div className="mx-4 sm:mt-5 sm:mb-7 grid grid-cols-2 justify-items-center items-center">
-                    <div className="flex justify-center mx-4">
-                        <button className="w-10 h-10 sm:w-14 sm:h-14 mr-2 bg-gradient-radial from-gray-800 via-green-800 to-green-900 rounded-full text-gray-100 opacity-90 text-xs sm:text-base"
+                {/* --- Start/Stop Btn & Input --- */}
+                <div className="mx-4 sm:mt-5 sm:mb-7 sm:mx-6 grid grid-cols-2 justify-items-center items-center">
+                    
+                    {/* --- Buttons --- */}
+                    <div className="flex justify-center">
+                        <button className="w-10 h-10 sm:w-14 sm:h-14 mr-2 sm:ml-3 bg-gradient-radial from-gray-800 via-green-800 to-green-900 rounded-full text-gray-100 opacity-90 text-xs sm:text-base"
                             onClick={handleClick}
                             >
                             Start
@@ -138,7 +140,7 @@ export default function Main() {
                         </button>
 
                         {/* Chris - new Stop Button */}
-                        <button className="w-10 h-10 sm:w-14 sm:h-14 ml-2 bg-gradient-radial rounded-full from-gray-800 via-red-800 to-red-900 text-gray-100 opacity-90 text-xs sm:text-base"
+                        <button className="w-10 h-10 sm:w-14 sm:h-14 ml-2 sm:l-3 bg-gradient-radial rounded-full from-gray-800 via-red-800 to-red-900 text-gray-100 opacity-90 text-xs sm:text-base"
                             onClick={stopBtn}
                             >
                             Stop
@@ -146,13 +148,12 @@ export default function Main() {
                             
                     </div>
 
-                    {/* --- INPUT - has styling issues. Flex not working same for me as was in Vanilla set-up --- */}
+                    {/* --- INPUT - has styling issues --- */}
 
-                    {/* <input id="santa-home-target" aria-label="Input House Target for the Night" type="text" placeholder="House Target" className="mx-2 italic text-xs text-center text-gray-200 placeholder:text-gray-400 bg-gray-800 border border-gray-300 rounded-full focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"> */}
                     <InputGroup className="">
                     {/* <InputGroup.Text id="basic-addon1">Target</InputGroup.Text> */}
                     <Form.Control
-                        className="italic py-1 text-xs sm:text-sm text-center text-gray-200 placeholder:text-gray-400 bg-gray-800 border border-gray-300 rounded-full focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
+                        className="italic m-0 py-1 text-xs sm:text-sm text-center text-gray-200 placeholder:text-gray-400 bg-gray-800 border border-gray-300 rounded-full focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
                         placeholder="House Target"
                         aria-label="Input House Target for the Nigh"
                         aria-describedby="basic-addon1"
