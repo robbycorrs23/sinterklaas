@@ -31,21 +31,12 @@ export default function SantaList() {
             <h1 className='text-2xl'>Naughty or Nice List</h1>
             <div className="flex">
                 <div>
-                    <h3>Nice</h3>
                     <div className="flex flex-col">
                         {kids.filter((user, i) => i <= 40).map((users, i) =>
                             <ul key={toys.id}>
                                 <li>{`${users.firstname} ${users.lastname}`}</li>
                                 <li className="text-sm">{toys[i].toy}</li>
                             </ul>
-                        )}
-                    </div>
-                </div>
-                <div>
-                    <h3>Naughty</h3>
-                    <div className="flex flex-col">
-                        {kids.filter((user, i) => i > 40).map((users) =>
-                            <p>{`${users.firstname} ${users.lastname}`}</p>
                         )}
                     </div>
                 </div>

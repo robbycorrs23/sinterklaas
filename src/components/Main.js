@@ -175,7 +175,7 @@ export default function Main() {
                         > Reset
                         </button>
                         {/*New fast forward button*/}
-                        <button className="w-10 h-10 sm:w-14 sm:h-14 mr-2 sm:ml-3 bg-gradient-radial from-gray-800 via-green-800 to-green-900 rounded-full text-gray-100 opacity-90 text-xs sm:text-base"
+                            <button className="w-10 h-10 sm:w-14 sm:h-14 mr-2 sm:ml-3 bg-gradient-radial from-gray-800 via-red-800 to-red-900 rounded-full text-gray-100 opacity-90 text-xs sm:text-base"
                             onClick={fastForward}
                         > FF
                         </button>
