@@ -94,10 +94,11 @@ export default function Main() {
     return (
     /* --- BACKGROUND - problems!!! Something different about CRA and Tailwind I think --- */
 
-    //  --- MEDIA QUERIES - PORTRAIT: mobile w:470px / sm:640px / lg:1024px / xl:1280px ---
-    //                      LANDSCAPE: 
+    //  --- MEDIA QUERIES - PORTRAIT: mobile w:470px / sm:640px / md: 768px / lg:1024px / xl:1280px ---
+    //   
     // ------------------------------------------------------------------------------------
         
+        // --- This should keep dashboard in centre of every device. Seems to with expcetion of ipad mini in safari, where it rides up a little --- /
         <div className="m-0 flex items-center justify-center h-screen">
             
 
@@ -115,22 +116,24 @@ export default function Main() {
                     
                 </div>
 
-                {/* --- INNER Screen grid --- */}
+                {/* --- INNER Screen grid - cols 1 and 6 ignore my instructions to keep to a tiny or 0 width --- */}
           
                 <div className="mt-2 mb-1 mx-3 sm:m-6 lg:px-1 grid grid-cols-[5px_minmax(1fr)_minmax(1fr)_minmax(1fr)_minmax(1fr)_5px] grid-rows-4 lg:grid-rows-2 text-sm sm:text-base lg:text-lg text-gray-300 bg-slate-800 border border-blue-400 rounded-2xl">
                     
                     <div className="col-start-1 min-w-0 overflow-hidden"></div>
 
+                    {/* --- Calorie Target --- */}
                     <div className="col-start-2 col-span-2 lg:col-start-4 lg:col-span-1 flex flex-col items-center border-dashed border-b border-r border-blue-400">
-                        <div className="text-gray-300 text-xs sm:text-base md:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Calorie Target</div> 
-                        <div className="font-mono text-white text-base sm:text-lg lg:text-2xl mb-3 sm:mb-4 lg:mb-10">{calorieTarget}</div> 
+                        <div className="my-2 sm:my-3 lg:my-9 lg:px-6 text-gray-300 text-xs sm:text-base md:text-lg">Calorie Target</div> 
+                        <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl">{calorieTarget}</div> 
                     </div>
-                    
+
+                    {/* --- Calories so far Tonight --- */}
                     <div className="relative col-start-4 col-span-2 lg:col-start-5 lg:col-span-1 flex flex-col items-center border-dashed border-b border-blue-400">
-                        <div className="text-gray-300 text-xs sm:text-base md:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Calories Tonight</div>
-                        <div className="font-mono text-white text-base sm:text-lg lg:text-2xl mb-3 sm:mb-4 lg:mb-10">{calorieCount < 0 ? 0 : calorieCount}</div> 
+                        <div className="my-2 sm:my-3 lg:my-9 lg:px-6 text-gray-300 text-xs sm:text-base md:text-lg">Calories Tonight</div>
+                        <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl">{calorieCount < 0 ? 0 : calorieCount}</div> 
                     
-                        {/* --- Calorie Light - position:absolute --- */}
+                        {/* --- Warning Light - position:absolute --- */}
                         <div className="col-start-5 absolute top-8 right-1 sm:top-2 sm:-right-3 lg:top-2 lg:right-0">
                             {calorieCount < 4750 ? 
                             <div className="w-5 h-5 bg-gradient-radial rounded-full from-gray-800 via-red-300 to-gray-600 opacity-30">
@@ -138,35 +141,45 @@ export default function Main() {
                             <div className="animate-pulse w-5 h-5 bg-gradient-radial rounded-full from-red-600 via-grey-600 to-red-900 opacity-100">
                             </div>}
                         </div>
-                    
                     </div>
 
+                    {/* --- Milk / Cookies --- */}
                     <div className="col-start-2 col-span-2 lg:row-start-2 lg:col-start-2 lg:col-span-1 flex flex-col items-center border-dashed border-b border-r lg:border-b-0 border-blue-400">
-                        <div className="text-gray-300 text-xs sm:text-base md:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Milk / Cookies</div>
+                        <div className="my-2 sm:my-3 lg:my-9 lg:px-6 text-gray-300 text-xs sm:text-base md:text-lg">Milk / Cookies</div>
                         <div className=" mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{cookieMilkCount}</div> 
                     </div>
 
+                    {/* --- Tea / Carrots --- */}
                     <div className="col-start-4 col-span-2 lg:row-start-2 lg:col-start-3 lg:col-span-1 flex flex-col items-center border-dashed border-b lg:border-b-0 lg:border-r border-blue-400">
-                        <div className="text-gray-300 text-xs sm:text-base md:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Tea / Carrots</div>
+                        <div className="my-2 sm:my-3 lg:my-9 lg:px-6 text-gray-300 text-xs sm:text-base md:text-lg">Tea / Carrots</div>
                         <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{carrotTeaCount}</div>
-                    </div>                    
+                    </div>     
+
+                    {/* --- Homes Visited --- */}          
                     <div className="col-start-2 col-span-2 lg:row-start-1 lg:col-start-2 lg:col-span-1 flex flex-col items-center border-dashed border-b border-r border-blue-400">
-                        <div className="text-gray-300 text-xs sm:text-base md:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Homes Visited</div>
+                        <div className="my-2 sm:my-3 lg:my-9 lg:px-6 text-gray-300 text-xs sm:text-base md:text-lg">Homes Visited</div>
                         <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{totalHomes}</div> 
                     </div>
+
+                    {/* --- Homes Remaining --- */} 
                     <div className="col-start-4 col-span-2 lg:row-start-1 lg:col-start-3 lg:col-span-1 flex flex-col items-center border-dashed border-b lg:border-r border-blue-400">
-                        <div className="text-gray-300 text-xs sm:text-base md:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Homes Remain</div>
+                        <div className="my-2 sm:my-3 lg:my-9 lg:px-6 text-gray-300 text-xs sm:text-base md:text-lg">Homes Remain</div>
                         <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{homesRemaining <= 0 ? 0 : homesRemaining}</div> 
                     </div>
+
+                    {/* --- Delivery Speed: homes/second --- */} 
                     <div className="col-start-2 col-span-2 lg:row-start-2 lg:col-start-4 lg:col-span-1 flex flex-col items-center border-dashed border-r border-blue-400">
-                        <div className="text-gray-300 text-xs sm:text-base md:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Delivery Speed</div>
+                        <div className="my-2 sm:my-3 lg:my-9 lg:px-6 text-gray-300 text-xs sm:text-base md:text-lg">Delivery Speed</div>
                         <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{currentSpeed} h/s</div> 
                     </div>
+
+                    {/* --- Total Time / seconds --- */} 
                     <div className="col-start-4 col-span-2 lg:row-start-2 lg:col-start-5 lg:col-span-1 flex flex-col items-center border-dashed border-blue-400">
-                        <div className="text-gray-300 text-xs sm:text-base md:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Total Time</div>
+                        <div className="my-2 sm:my-3 lg:my-9 lg:px-6 text-gray-300 text-xs sm:text-base md:text-lg">Total Time</div>
                         <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{timeSecs.toFixed(0)}</div>
                     </div>
-
+                    
+                    {/* --- Empty Column 6 for padding --- */} 
                     <div className="col-start-6 min-w-0 overflow-hidden"></div>
 
                 </div>
@@ -186,8 +199,6 @@ export default function Main() {
                             onChange={e => handleChange(e)}
                         />
                     </InputGroup>
-                    
-                    
 
                     {/* --- BUTTONS grid --- */}
 
