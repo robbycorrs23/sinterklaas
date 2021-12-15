@@ -14,7 +14,7 @@ let carrotTeaCount = 0;
 
 export default function Main() {
     const [intervalId, setIntervalId] = useState(false) // previously setIntervalId was declared but not used. The StackOverflow solution said to put it above the `else` below
-    // const [homesDisplay, setHomesDisplay] = useState(200)
+    const [ffMode, setFfMode] = useState(false)
     const [totalHomes, setTotalHomes] = useState(0)
 
     let calorieTarget = 5000
@@ -22,29 +22,39 @@ export default function Main() {
 
 
     const handleClick = () => {
-        if (homesRemaining !== 0) {
-            interval = setInterval(() => {
-                calorieCount < 5000 && homesRemaining > 10 ? currentSpeed = 10 : 
+        function innerLogic() {
+            calorieCount < 5000 && homesRemaining > 10 ? currentSpeed = 10 :
                 calorieCount > 5000 && homesRemaining > 10 ? currentSpeed = 5 :
-                currentSpeed = 1
-                const nextTen =
-                    [...Array(currentSpeed)]
-                        .map(() =>
-                            Math.round(Math.random()) === 1 && calorieCount < 4750 ? cookiesMilk :
-                                Math.round(Math.random()) === 1 && calorieCount > 4750 ? Math.floor(cookiesMilk * 0.5) :
-                                    carrotsTea
-                        )
-                nextTen.forEach(item => item === cookiesMilk ? cookieMilkCount += 1: item === carrotsTea ? carrotTeaCount += 1: null)
-                const arrTotal = nextTen.reduce((acc, cur) => acc + cur);
-                
-                calorieCount += arrTotal;
-                setTotalHomes(prev => prev += currentSpeed);
-                homesRemaining -= currentSpeed
+                    currentSpeed = 1
+            const nextTen =
+                [...Array(currentSpeed)]
+                    .map(() =>
+                        Math.round(Math.random()) === 1 && calorieCount < 4750 ? cookiesMilk :
+                            Math.round(Math.random()) === 1 && calorieCount > 4750 ? Math.floor(cookiesMilk * 0.5) :
+                                carrotsTea
+                    )
+            nextTen.forEach(item => item === cookiesMilk ? cookieMilkCount += 1 : item === carrotsTea ? carrotTeaCount += 1 : null)
+            const arrTotal = nextTen.reduce((acc, cur) => acc + cur);
+
+            calorieCount += arrTotal;
+            setTotalHomes(prev => prev += currentSpeed);
+            homesRemaining -= currentSpeed
+            stopSanta()
+            
+        }
+        if (!ffMode) {
+            interval = setInterval(() => {
+                innerLogic()
                 timeSecs += 1
-                stopSanta()
             }, 1000);
             // Chris - I added below line from the stack overflow.
             setIntervalId(interval); 
+        } else if (ffMode) {
+            interval = setInterval(() => {
+                innerLogic()
+                timeSecs += 0.05
+            }, 50);
+            setIntervalId(interval);
         } else {
             alert("Please enter value for target # of homes!")
         }
@@ -63,6 +73,22 @@ export default function Main() {
     const handleChange = (e) => {
         e.preventDefault();
         homesRemaining = e.target.value
+    }
+
+    const resetMetrics = () => {
+        calorieCount = 0
+        homesRemaining = 0
+        timeSecs = 0
+        cookieMilkCount = 0
+        carrotTeaCount = 0
+        currentSpeed = 10
+        setTotalHomes(0)
+    }
+
+    const fastForward = () => {
+        clearInterval(intervalId)
+        setFfMode(!ffMode)
+        handleClick()
     }
     
     return (
@@ -118,7 +144,7 @@ export default function Main() {
                     </div>
                     <div className="flex flex-col items-center border-dashed border-b border-blue-400">
                         <div className="text-gray-300 my-2 sm:my-3">Homes Remain</div>
-                        <div id="homes-remaining" class="mb-3 sm:mb-4 font-mono text-white text-base sm:text-lg">{interval ? "0" : homesRemaining}</div> 
+                        <div id="homes-remaining" class="mb-3 sm:mb-4 font-mono text-white text-base sm:text-lg">{homesRemaining <= 0 ? 0 : homesRemaining}</div> 
                     </div>
                     <div className="flex flex-col items-center border-dashed border-r border-blue-400">
                         <div className="text-gray-300 my-2 sm:my-3">Delivery Speed</div>
@@ -126,7 +152,7 @@ export default function Main() {
                     </div>
                     <div className="flex flex-col items-center border-dashed border-blue-400">
                         <div className="text-gray-300 my-2 sm:my-3">Total Time</div>
-                        <div id="time-ms" class="mb-3 sm:mb-4 font-mono text-white text-base sm:text-lg">{timeSecs}</div>
+                        <div id="time-ms" class="mb-3 sm:mb-4 font-mono text-white text-base sm:text-lg">{timeSecs.toFixed(0)}</div>
                     </div>
                 </div>
 
@@ -137,16 +163,21 @@ export default function Main() {
                     <div className="flex justify-center">
                         <button className="w-10 h-10 sm:w-14 sm:h-14 mr-2 sm:ml-3 bg-gradient-radial from-gray-800 via-green-800 to-green-900 rounded-full text-gray-100 opacity-90 text-xs sm:text-base"
                             onClick={handleClick}
-                            >
-                            Start
-                            {/* {intervalId ? "Stop counting" : "Start counting"} */}
+                        > Start
                         </button>
-
-                        {/* Chris - new Stop Button */}
                         <button className="w-10 h-10 sm:w-14 sm:h-14 ml-2 sm:l-3 bg-gradient-radial rounded-full from-gray-800 via-red-800 to-red-900 text-gray-100 opacity-90 text-xs sm:text-base"
                             onClick={stopBtn}
-                            >
-                            Stop
+                        > Stop
+                        </button>
+                        {/*New reset button*/}
+                        <button className="w-10 h-10 sm:w-14 sm:h-14 mr-2 sm:ml-3 bg-gradient-radial from-gray-800 via-green-800 to-green-900 rounded-full text-gray-100 opacity-90 text-xs sm:text-base"
+                            onClick={resetMetrics}
+                        > Reset
+                        </button>
+                        {/*New fast forward button*/}
+                        <button className="w-10 h-10 sm:w-14 sm:h-14 mr-2 sm:ml-3 bg-gradient-radial from-gray-800 via-green-800 to-green-900 rounded-full text-gray-100 opacity-90 text-xs sm:text-base"
+                            onClick={fastForward}
+                        > FF
                         </button>
                             
                     </div>
