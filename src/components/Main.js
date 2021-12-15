@@ -102,7 +102,7 @@ export default function Main() {
             
 
             {/* --- OUTER Screen --- */}
-            <div className="w-[480px] sm:w-3/5 sm:h-auto lg:w-3/4 lg:max-w-[800px] xl:w-3/5 2xl:w-1/2 m-2 pb-2 bg-gray-800 border border-blue-400 rounded-2xl">
+            <div className="w-[480px] sm:w-3/5 sm:h-auto lg:max-w-[500px] lg:w-3/4 lg:max-w-[800px] xl:w-3/5 2xl:w-1/2 m-2 pb-2 bg-gray-800 border border-blue-400 rounded-2xl">
             <container className="rounded">
             
                 {/* --- Buttons - Change Screen --- */}
