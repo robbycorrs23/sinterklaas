@@ -122,18 +122,18 @@ export default function Main() {
                     <div className="col-start-1 min-w-0 overflow-hidden"></div>
 
                     <div className="col-start-2 col-span-2 lg:col-start-4 lg:col-span-1 flex flex-col items-center border-dashed border-b border-r border-blue-400">
-                        <div className="text-gray-300 text-xs lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Calorie Target</div> 
+                        <div className="text-gray-300 text-xs md:text-base lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Calorie Target</div> 
                         <div className="font-mono text-white text-base sm:text-lg lg:text-2xl mb-3 sm:mb-4 lg:mb-10">{calorieTarget}</div> 
                     </div>
                     
                     <div className="relative col-start-4 col-span-2 lg:col-start-5 lg:col-span-1 flex flex-col items-center border-dashed border-b border-blue-400">
-                        <div className="text-gray-300 text-xs lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Calories Tonight</div>
+                        <div className="text-gray-300 text-xs md:text-base lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Calories Tonight</div>
                         <div className="font-mono text-white text-base sm:text-lg lg:text-2xl mb-3 sm:mb-4 lg:mb-10">{calorieCount < 0 ? 0 : calorieCount}</div> 
                     
                         {/* --- Calorie Light - position:absolute --- */}
                         <div className="col-start-5 absolute top-8 right-1 sm:top-2 sm:-right-3 lg:top-2 lg:right-0">
                             {calorieCount < 4750 ? 
-                            <div className="w-5 h-5 bg-gradient-radial rounded-full from-gray-700 via-red-500 to-red-800 opacity-90">
+                            <div className="w-5 h-5 bg-gradient-radial rounded-full from-gray-800 via-red-300 to-gray-600 opacity-30">
                             </div> : 
                             <div className="animate-pulse w-5 h-5 bg-gradient-radial rounded-full from-red-600 via-grey-600 to-red-900 opacity-100">
                             </div>}
@@ -142,28 +142,28 @@ export default function Main() {
                     </div>
 
                     <div className="col-start-2 col-span-2 lg:row-start-2 lg:col-start-2 lg:col-span-1 flex flex-col items-center border-dashed border-b border-r lg:border-b-0 border-blue-400">
-                        <div className="text-gray-300 text-xs lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Milk / Cookies</div>
+                        <div className="text-gray-300 text-xs md:text-base lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Milk / Cookies</div>
                         <div className=" mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{cookieMilkCount}</div> 
                     </div>
 
                     <div className="col-start-4 col-span-2 lg:row-start-2 lg:col-start-3 lg:col-span-1 flex flex-col items-center border-dashed border-b lg:border-b-0 lg:border-r border-blue-400">
-                        <div className="text-gray-300 text-xs lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Tea / Carrots</div>
+                        <div className="text-gray-300 text-xs md:text-base lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Tea / Carrots</div>
                         <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{carrotTeaCount}</div>
                     </div>                    
                     <div className="col-start-2 col-span-2 lg:row-start-1 lg:col-start-2 lg:col-span-1 flex flex-col items-center border-dashed border-b border-r border-blue-400">
-                        <div className="text-gray-300 text-xs lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Homes Visited</div>
+                        <div className="text-gray-300 text-xs md:text-base lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Homes Visited</div>
                         <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{totalHomes}</div> 
                     </div>
                     <div className="col-start-4 col-span-2 lg:row-start-1 lg:col-start-3 lg:col-span-1 flex flex-col items-center border-dashed border-b lg:border-r border-blue-400">
-                        <div className="text-gray-300 text-xs lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Homes Remain</div>
+                        <div className="text-gray-300 text-xs md:text-base lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Homes Remain</div>
                         <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{homesRemaining <= 0 ? 0 : homesRemaining}</div> 
                     </div>
                     <div className="col-start-2 col-span-2 lg:row-start-2 lg:col-start-4 lg:col-span-1 flex flex-col items-center border-dashed border-r border-blue-400">
-                        <div className="text-gray-300 text-xs lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Delivery Speed</div>
+                        <div className="text-gray-300 text-xs md:text-base lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Delivery Speed</div>
                         <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{currentSpeed} h/s</div> 
                     </div>
                     <div className="col-start-4 col-span-2 lg:row-start-2 lg:col-start-5 lg:col-span-1 flex flex-col items-center border-dashed border-blue-400">
-                        <div className="text-gray-300 text-xs lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Total Time</div>
+                        <div className="text-gray-300 text-xs md:text-base lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Total Time</div>
                         <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{timeSecs.toFixed(0)}</div>
                     </div>
 
