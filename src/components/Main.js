@@ -119,16 +119,16 @@ export default function Main() {
           
                 <div className="mt-2 mb-1 mx-3 sm:m-6 lg:px-1 grid grid-cols-[5px_minmax(1fr)_minmax(1fr)_minmax(1fr)_minmax(1fr)_5px] grid-rows-4 lg:grid-rows-2 text-sm sm:text-base lg:text-lg text-gray-300 bg-slate-800 border border-blue-400 rounded-2xl">
                     
-                    <div className="col-start-1 overflow-hidden"></div>
+                    <div className="col-start-1 min-w-0 overflow-hidden"></div>
 
                     <div className="col-start-2 col-span-2 lg:col-start-4 lg:col-span-1 flex flex-col items-center border-dashed border-b border-r border-blue-400">
-                        <div className="text-gray-300 text-xs my-2 sm:my-3 lg:my-7 lg:px-6">Calorie Target</div> 
-                        <div className="font-mono text-white text-base sm:text-lg mb-3 sm:mb-4 lg:mb-7">{calorieTarget}</div> 
+                        <div className="text-gray-300 text-xs lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Calorie Target</div> 
+                        <div className="font-mono text-white text-base sm:text-lg lg:text-2xl mb-3 sm:mb-4 lg:mb-10">{calorieTarget}</div> 
                     </div>
                     
                     <div className="relative col-start-4 col-span-2 lg:col-start-5 lg:col-span-1 flex flex-col items-center border-dashed border-b border-blue-400">
-                        <div className="text-gray-300 text-xs my-2 sm:my-3 lg:my-7 lg:px-6">Calories Tonight</div>
-                        <div className="font-mono text-white text-base sm:text-lg mb-3 sm:mb-4 lg:mb-7">{calorieCount < 0 ? 0 : calorieCount}</div> 
+                        <div className="text-gray-300 text-xs lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Calories Tonight</div>
+                        <div className="font-mono text-white text-base sm:text-lg lg:text-2xl mb-3 sm:mb-4 lg:mb-10">{calorieCount < 0 ? 0 : calorieCount}</div> 
                     
                         {/* --- Calorie Light - position:absolute --- */}
                         <div className="col-start-5 absolute top-8 right-1 sm:top-2 sm:-right-3 lg:top-2 lg:right-0">
@@ -142,32 +142,32 @@ export default function Main() {
                     </div>
 
                     <div className="col-start-2 col-span-2 lg:row-start-2 lg:col-start-2 lg:col-span-1 flex flex-col items-center border-dashed border-b border-r lg:border-b-0 border-blue-400">
-                        <div className="text-gray-300 text-xs my-2 sm:my-3 lg:my-7 lg:px-6">Milk / Cookies</div>
-                        <div className=" mb-3 sm:mb-4 lg:mb-7font-mono text-white text-base sm:text-lg">{cookieMilkCount}</div> 
+                        <div className="text-gray-300 text-xs lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Milk / Cookies</div>
+                        <div className=" mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{cookieMilkCount}</div> 
                     </div>
 
                     <div className="col-start-4 col-span-2 lg:row-start-2 lg:col-start-3 lg:col-span-1 flex flex-col items-center border-dashed border-b lg:border-b-0 lg:border-r border-blue-400">
-                        <div className="text-gray-300 text-xs my-2 sm:my-3 lg:my-7 lg:px-6">Tea / Carrots</div>
-                        <div className="mb-3 sm:mb-4 lg:mb-7 font-mono text-white text-base sm:text-lg">{carrotTeaCount}</div>
+                        <div className="text-gray-300 text-xs lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Tea / Carrots</div>
+                        <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{carrotTeaCount}</div>
                     </div>                    
                     <div className="col-start-2 col-span-2 lg:row-start-1 lg:col-start-2 lg:col-span-1 flex flex-col items-center border-dashed border-b border-r border-blue-400">
-                        <div className="text-gray-300 text-xs my-2 sm:my-3 lg:my-7 lg:px-6">Homes Visited</div>
-                        <div className="mb-3 sm:mb-4 lg:mb-7 font-mono text-white text-base sm:text-lg">{totalHomes}</div> 
+                        <div className="text-gray-300 text-xs lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Homes Visited</div>
+                        <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{totalHomes}</div> 
                     </div>
                     <div className="col-start-4 col-span-2 lg:row-start-1 lg:col-start-3 lg:col-span-1 flex flex-col items-center border-dashed border-b lg:border-r border-blue-400">
-                        <div className="text-gray-300 text-xs my-2 sm:my-3 lg:my-7 lg:px-6">Homes Remain</div>
-                        <div className="mb-3 sm:mb-4 lg:mb-7 font-mono text-white text-base sm:text-lg">{homesRemaining <= 0 ? 0 : homesRemaining}</div> 
+                        <div className="text-gray-300 text-xs lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Homes Remain</div>
+                        <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{homesRemaining <= 0 ? 0 : homesRemaining}</div> 
                     </div>
                     <div className="col-start-2 col-span-2 lg:row-start-2 lg:col-start-4 lg:col-span-1 flex flex-col items-center border-dashed border-r border-blue-400">
-                        <div className="text-gray-300 text-xs my-2 sm:my-3 lg:my-7 lg:px-6">Delivery Speed</div>
-                        <div className="mb-3 sm:mb-4 lg:mb-7 font-mono text-white text-base sm:text-lg">{currentSpeed} h/s</div> 
+                        <div className="text-gray-300 text-xs lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Delivery Speed</div>
+                        <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{currentSpeed} h/s</div> 
                     </div>
                     <div className="col-start-4 col-span-2 lg:row-start-2 lg:col-start-5 lg:col-span-1 flex flex-col items-center border-dashed border-blue-400">
-                        <div className="text-gray-300 text-xs my-2 sm:my-3 lg:my-7 lg:px-6">Total Time</div>
-                        <div className="mb-3 sm:mb-4 lg:mb-7 font-mono text-white text-base sm:text-lg">{timeSecs.toFixed(0)}</div>
+                        <div className="text-gray-300 text-xs lg:text-lg my-2 sm:my-3 lg:my-9 lg:px-6">Total Time</div>
+                        <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{timeSecs.toFixed(0)}</div>
                     </div>
 
-                    <div className="col-start-6"></div>
+                    <div className="col-start-6 min-w-0 overflow-hidden"></div>
 
                 </div>
 
@@ -178,7 +178,7 @@ export default function Main() {
                     <InputGroup className="mt-1 mb-2 mx-auto text-center">
                         {/* <InputGroup.Text id="basic-addon1" className="m-0 py-1 text-xs sm:text-sm text-center text-gray-200">Enter Target:</InputGroup.Text> */}
                         <Form.Control
-                            className="italic py-1 lg:px-4 text-xs sm:text-sm text-center text-gray-200 placeholder:text-gray-400 bg-gray-800 border border-gray-300 rounded-full focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
+                            className="italic py-1 lg:px-8 text-xs sm:text-sm text-center text-gray-200 placeholder:text-gray-400 bg-gray-800 border border-gray-300 rounded-full focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
                             placeholder="Enter target"
                             aria-label="Input House Target for the Night"
                             aria-describedby="basic-addon1"
