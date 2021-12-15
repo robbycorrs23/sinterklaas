@@ -102,101 +102,129 @@ export default function Main() {
             
 
             {/* --- OUTER Screen --- */}
-            <div className="w-[470px] sm:w-3/5 md:w-1/2 sm:h-auto m-3 pb-3 bg-gray-800 border border-blue-400 rounded-2xl">
+            <div className="w-[480px] sm:w-3/5 sm:h-auto lg:w-3/4 xl:w-3/5 2xl:w-1/2 m-2 pb-2 bg-gray-800 border border-blue-400 rounded-2xl">
             <container className="rounded">
             
                 {/* --- Buttons - Change Screen --- */}
                 <div className="mx-4 my-2 sm:my-6 flex justify-evenly">
                     
                         {/* --- metrics --- */}
-                        <button className="text-gray-200"> <i class="fas fa-chart-line fa-lg"></i></button>
+                        <button className="text-gray-200 lg:text-xl "> <i class="fas fa-chart-line fa-lg"></i></button>
                         {/* --- JSON list --- */}
-                        <button className="text-gray-500"> <i class="far fa-address-book fa-lg"></i></button>
+                        <button className="text-gray-500 lg:text-xl "> <i class="far fa-address-book fa-lg"></i></button>
                     
                 </div>
 
-                {/* --- INNER Screen --- */}
+                {/* --- INNER Screen grid --- */}
           
-                <div className="my-3 mx-3 sm:m-6 p-3 sm:px-3 sm:py-1 bg-slate-800 border border-blue-400 rounded-2xl grid grid-cols-2 text-sm sm:text-base text-gray-300">
+                <div className="mt-2 mb-1 mx-3 sm:m-6 lg:px-1 grid grid-cols-[5px_minmax(1fr)_minmax(1fr)_minmax(1fr)_minmax(1fr)_5px] grid-rows-4 lg:grid-rows-2 text-sm sm:text-base lg:text-lg text-gray-300 bg-slate-800 border border-blue-400 rounded-2xl">
                     
-                    <div className="flex flex-col items-center border-dashed border-b border-r border-blue-400">
-                        <div className="text-gray-300 my-2 sm:my-3">Calorie Target</div> 
-                        <div className="font-mono text-white text-base sm:text-lg mb-3 sm:mb-4">{calorieTarget}</div> 
+                    <div className="col-start-1 overflow-hidden"></div>
+
+                    <div className="col-start-2 col-span-2 lg:col-start-4 lg:col-span-1 flex flex-col items-center border-dashed border-b border-r border-blue-400">
+                        <div className="text-gray-300 text-xs my-2 sm:my-3 lg:my-7 lg:px-6">Calorie Target</div> 
+                        <div className="font-mono text-white text-base sm:text-lg mb-3 sm:mb-4 lg:mb-7">{calorieTarget}</div> 
                     </div>
-                    <div className="relative flex flex-col items-center border-dashed border-b border-blue-400">
-                    {calorieCount < 4750 ? <div className="absolute w-5 h-5 -top-1 -right-2 bg-gradient-radial rounded-full from-gray-800 via-red-800 to-red-900 opacity-90">
-                    </div> : <div className="animate-pulse absolute w-5 h-5 -top-1 -right-2 bg-gradient-radial rounded-full from-red-600 via-grey-600 to-red-900 opacity-100">
-                    </div>}
-                    <div className="text-gray-300 mt-1 mb-2">Calories Tonight</div>
-                    <div id="santa-calories" class="mb-2 font-mono text-white">{calorieCount < 0 ? 0 : calorieCount}</div> 
+                    
+                    <div className="relative col-start-4 col-span-2 lg:col-start-5 lg:col-span-1 flex flex-col items-center border-dashed border-b border-blue-400">
+                        <div className="text-gray-300 text-xs my-2 sm:my-3 lg:my-7 lg:px-6">Calories Tonight</div>
+                        <div className="font-mono text-white text-base sm:text-lg mb-3 sm:mb-4 lg:mb-7">{calorieCount < 0 ? 0 : calorieCount}</div> 
+                    
+                        {/* --- Calorie Light - position:absolute --- */}
+                        <div className="col-start-5 absolute top-8 right-1 sm:top-2 sm:-right-3 lg:top-2 lg:right-0">
+                            {calorieCount < 4750 ? 
+                            <div className="w-5 h-5 bg-gradient-radial rounded-full from-gray-700 via-red-500 to-red-800 opacity-90">
+                            </div> : 
+                            <div className="animate-pulse w-5 h-5 bg-gradient-radial rounded-full from-red-600 via-grey-600 to-red-900 opacity-100">
+                            </div>}
+                        </div>
+                    
                     </div>
-                    <div className="flex flex-col items-center border-dashed border-b border-r border-blue-400">
-                        <div className="text-gray-300 my-2 sm:my-3">Milk / Cookies</div>
-                        <div id="total-milk-cookies" class=" mb-3 sm:mb-4 font-mono text-white text-base sm:text-lg">{cookieMilkCount}</div> 
+
+                    <div className="col-start-2 col-span-2 lg:row-start-2 lg:col-start-2 lg:col-span-1 flex flex-col items-center border-dashed border-b border-r lg:border-b-0 border-blue-400">
+                        <div className="text-gray-300 text-xs my-2 sm:my-3 lg:my-7 lg:px-6">Milk / Cookies</div>
+                        <div className=" mb-3 sm:mb-4 lg:mb-7font-mono text-white text-base sm:text-lg">{cookieMilkCount}</div> 
                     </div>
-                    <div className="flex flex-col items-center border-dashed border-b border-blue-400">
-                        <div className="text-gray-300 my-2 sm:my-3">Tea / Carrots</div>
-                            <div id="total-carrots-tea" class="mb-3 sm:mb-4 font-mono text-white text-base sm:text-lg">{carrotTeaCount}</div>
+
+                    <div className="col-start-4 col-span-2 lg:row-start-2 lg:col-start-3 lg:col-span-1 flex flex-col items-center border-dashed border-b lg:border-b-0 lg:border-r border-blue-400">
+                        <div className="text-gray-300 text-xs my-2 sm:my-3 lg:my-7 lg:px-6">Tea / Carrots</div>
+                        <div className="mb-3 sm:mb-4 lg:mb-7 font-mono text-white text-base sm:text-lg">{carrotTeaCount}</div>
                     </div>                    
-                    <div className="flex flex-col items-center border-dashed border-b border-r border-blue-400">
-                        <div className="text-gray-300 my-2 sm:my-3">Homes Visited</div>
-                        <div id="homes-visited" class="mb-3 sm:mb-4 font-mono text-white text-base sm:text-lg">{totalHomes}</div> 
+                    <div className="col-start-2 col-span-2 lg:row-start-1 lg:col-start-2 lg:col-span-1 flex flex-col items-center border-dashed border-b border-r border-blue-400">
+                        <div className="text-gray-300 text-xs my-2 sm:my-3 lg:my-7 lg:px-6">Homes Visited</div>
+                        <div className="mb-3 sm:mb-4 lg:mb-7 font-mono text-white text-base sm:text-lg">{totalHomes}</div> 
                     </div>
-                    <div className="flex flex-col items-center border-dashed border-b border-blue-400">
-                        <div className="text-gray-300 my-2 sm:my-3">Homes Remain</div>
-                        <div id="homes-remaining" class="mb-3 sm:mb-4 font-mono text-white text-base sm:text-lg">{homesRemaining <= 0 ? 0 : homesRemaining}</div> 
+                    <div className="col-start-4 col-span-2 lg:row-start-1 lg:col-start-3 lg:col-span-1 flex flex-col items-center border-dashed border-b lg:border-r border-blue-400">
+                        <div className="text-gray-300 text-xs my-2 sm:my-3 lg:my-7 lg:px-6">Homes Remain</div>
+                        <div className="mb-3 sm:mb-4 lg:mb-7 font-mono text-white text-base sm:text-lg">{homesRemaining <= 0 ? 0 : homesRemaining}</div> 
                     </div>
-                    <div className="flex flex-col items-center border-dashed border-r border-blue-400">
-                        <div className="text-gray-300 my-2 sm:my-3">Delivery Speed</div>
-                        <div id="homes-per-second" class="mb-3 sm:mb-4 font-mono text-white text-base sm:text-lg">{currentSpeed} h/s</div> 
+                    <div className="col-start-2 col-span-2 lg:row-start-2 lg:col-start-4 lg:col-span-1 flex flex-col items-center border-dashed border-r border-blue-400">
+                        <div className="text-gray-300 text-xs my-2 sm:my-3 lg:my-7 lg:px-6">Delivery Speed</div>
+                        <div className="mb-3 sm:mb-4 lg:mb-7 font-mono text-white text-base sm:text-lg">{currentSpeed} h/s</div> 
                     </div>
-                    <div className="flex flex-col items-center border-dashed border-blue-400">
-                        <div className="text-gray-300 my-2 sm:my-3">Total Time</div>
-                        <div id="time-ms" class="mb-3 sm:mb-4 font-mono text-white text-base sm:text-lg">{timeSecs.toFixed(0)}</div>
+                    <div className="col-start-4 col-span-2 lg:row-start-2 lg:col-start-5 lg:col-span-1 flex flex-col items-center border-dashed border-blue-400">
+                        <div className="text-gray-300 text-xs my-2 sm:my-3 lg:my-7 lg:px-6">Total Time</div>
+                        <div className="mb-3 sm:mb-4 lg:mb-7 font-mono text-white text-base sm:text-lg">{timeSecs.toFixed(0)}</div>
                     </div>
+
+                    <div className="col-start-6"></div>
+
                 </div>
 
-                {/* --- Start/Stop Btn & Input --- */}
-                <div className="mx-4 sm:mt-5 sm:mb-4 sm:mx-6 grid grid-cols-2 justify-items-center items-center">
+                 {/* --- INPUT & BUTTONs in flex --- */}
+                
+                <div className="flex flex-col">
+                
+                    <InputGroup className="mt-1 mb-2 mx-auto text-center">
+                        {/* <InputGroup.Text id="basic-addon1" className="m-0 py-1 text-xs sm:text-sm text-center text-gray-200">Enter Target:</InputGroup.Text> */}
+                        <Form.Control
+                            className="italic py-1 lg:px-4 text-xs sm:text-sm text-center text-gray-200 placeholder:text-gray-400 bg-gray-800 border border-gray-300 rounded-full focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
+                            placeholder="Enter target"
+                            aria-label="Input House Target for the Night"
+                            aria-describedby="basic-addon1"
+                            type="text"
+                            onChange={e => handleChange(e)}
+                        />
+                    </InputGroup>
                     
-                    {/* --- Buttons --- */}
-                    <div className="flex justify-center">
-                        <button className="w-10 h-10 sm:w-14 sm:h-14 mr-2 sm:ml-3 bg-gradient-radial from-gray-800 via-green-800 to-green-900 rounded-full text-gray-100 opacity-90 text-xs sm:text-base"
+                    
+
+                    {/* --- BUTTONS grid --- */}
+
+                    <div className="mx-4 sm:mt-5 sm:mb-4 sm:mx-6 grid grid-cols-[5px_minmax(1fr)_minmax(1fr)_minmax(1fr)_minmax(1fr)_5px] justify-items-center items-center">
+                        
+                        <div className="col-start-1"></div>
+
+                        {/* --- Start/Stop Btn --- */}
+
+                        <button className="col-start-2 w-10 h-10 sm:w-14 sm:h-14 mx-1 bg-gradient-radial border border-green-400 from-gray-700 via-green-800 to-green-900 rounded-full text-gray-100  text-opacity-80 opacity-90 text-xs sm:text-base focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
                             onClick={handleClick}
                         > Start
                         </button>
-                        <button className="w-10 h-10 sm:w-14 sm:h-14 ml-2 sm:l-3 bg-gradient-radial rounded-full from-gray-800 via-red-800 to-red-900 text-gray-100 opacity-90 text-xs sm:text-base"
+
+                        <button className="col-start-3 w-10 h-10 sm:w-14 sm:h-14 mx-1 bg-gradient-radial border border-red-400 rounded-full from-gray-700 via-red-800 to-red-900 text-gray-100 text-opacity-80 opacity-90 text-xs sm:text-base focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
                             onClick={stopBtn}
                         > Stop
                         </button>
-                        {/*New reset button*/}
-                        <button className="w-10 h-10 sm:w-14 sm:h-14 mr-2 sm:ml-3 bg-gradient-radial from-gray-800 via-green-800 to-green-900 rounded-full text-gray-100 opacity-90 text-xs sm:text-base"
+                        
+                        {/* --- Reset/Fast-Forward Btn --- */}
+
+                        <button className="col-start-4 w-10 h-10 sm:w-14 sm:h-14 mx-1 bg-gradient-radial border border-yellow-400 from-gray-700 via-yellow-800 to-yellow-900 rounded-full text-gray-100 text-opacity-80 opacity-90 text-xs sm:text-base focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
+                            onClick={fastForward}
+                        > FF
+                        </button> 
+
+                        <button className="col-start-5 w-10 h-10 sm:w-14 sm:h-14 mx-1 bg-gradient-radial border border-blue-400 from-gray-700 via-blue-800 to-blue-900 rounded-full text-gray-100 text-opacity-80 opacity-90 text-xs sm:text-base focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
                             onClick={resetMetrics}
                         > Reset
                         </button>
-                        {/*New fast forward button*/}
-                            <button className="w-10 h-10 sm:w-14 sm:h-14 mr-2 sm:ml-3 bg-gradient-radial from-gray-800 via-red-800 to-red-900 rounded-full text-gray-100 opacity-90 text-xs sm:text-base"
-                            onClick={fastForward}
-                        > FF
-                        </button>
-                            
+                                    
+                        <div className="col-start-6"></div>
+                    
                     </div>
-
-                    {/* --- INPUT - has styling issues --- */}
-
-                    <InputGroup className="">
-                    {/* <InputGroup.Text id="basic-addon1">Target</InputGroup.Text> */}
-                    <Form.Control
-                        className="italic m-0 py-1 text-xs sm:text-sm text-center text-gray-200 placeholder:text-gray-400 bg-gray-800 border border-gray-300 rounded-full focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
-                        placeholder="House Target"
-                        aria-label="Input House Target for the Night"
-                        aria-describedby="basic-addon1"
-                        type="text"
-                        onChange={e => handleChange(e)}
-                    />
-                </InputGroup>
+                    
                 </div>
-                
+
             </container>
             </div>
             {/* --- END outer screen --- */}
