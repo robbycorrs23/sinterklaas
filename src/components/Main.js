@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import InputGroup from 'react-bootstrap/InputGroup'
 import Form from 'react-bootstrap/Form'
+import SantaList from './SantaList'
 // import stars from 'public/images/star-bgImg-kai-pilger-unsplash.jpeg'
 
 let calorieCount = 0;
@@ -16,10 +17,9 @@ export default function Main() {
     const [intervalId, setIntervalId] = useState(false) // previously setIntervalId was declared but not used. The StackOverflow solution said to put it above the `else` below
     // const [homesDisplay, setHomesDisplay] = useState(200)
     const [totalHomes, setTotalHomes] = useState(0)
-
+ 
     let calorieTarget = 5000
     let interval;
-
 
     const handleClick = () => {
         if (homesRemaining !== 0) {
@@ -39,7 +39,7 @@ export default function Main() {
                 
                 calorieCount += arrTotal;
                 setTotalHomes(prev => prev += currentSpeed);
-                homesRemaining -= currentSpeed
+                homesRemaining -= currentSpeed 
                 timeSecs += 1
                 stopSanta()
             }, 1000);
@@ -87,6 +87,8 @@ export default function Main() {
 
                 {/* --- INNER Screen --- */}
           
+               
+
                 <div className="m-4 p-3 bg-slate-800 border border-blue-400 rounded-2xl grid grid-cols-2 text-xs text-gray-300">
                     
                     <div className="flex flex-col items-center border-dashed border-b border-r border-blue-400">
@@ -126,6 +128,10 @@ export default function Main() {
                         <div id="time-ms" class="mb-2 font-mono text-white">{timeSecs}</div>
                     </div>
                 </div>
+
+                <SantaList 
+                    totalHomes={totalHomes}
+                />
 
                 {/* --- Buttons & Input --- */}
                 <div className="max-w-xs mx-4 mb-3 grid grid-cols-2">
