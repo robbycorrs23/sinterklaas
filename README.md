@@ -5,10 +5,11 @@ Contents
 1. [Overview](#overview)
 2. [Contributors](#contributors)
 3. [Features](#features)
-4. [Dependencies](#dependencies)
-5. [Bugs](#bugs)
-6. [To Do List](#todo)
-7. [Running the Project](#runproject)
+4. [Deploy Link](#deploy)
+5. [Dependencies](#dependencies)
+6. [Bugs](#bugs)
+7. [To Do List](#todo)
+8. [Running the Project](#runproject)
 
 
 ## OVERVIEW <a name="overview"></a>
@@ -76,6 +77,11 @@ To that end, Santa has requested a 'Fast Forward' button, which he can tap once 
 The Fast Forward button must be clicked twice to activate, to avoid any slips.
 
 Santa will have no time to properly test the elves' cocktail as supply chain issues resulting from covid have severly restricted cookie deliveries to the North Pole. Christmas Eve will be the trial run... 
+
+
+## DEPLOY LINK
+
+INSERT vercel link:
 
 
 ## DEPENDENCIES <a name="dependencies"></a>
