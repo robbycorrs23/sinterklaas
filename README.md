@@ -27,9 +27,9 @@ Santa wants an app that will:
 ## CONTRIBUTORS <a name="contributors"></a>
 Our hackathon team comprised of:
 
-- Robert Corrado
-- Chris Logothetis
-- Tyler Woolcott
+- Robert Corrado (twitter etc etc ?)
+- Chris Logothetis(twitter etc etc ?)
+- Tyler Woolcott (twitter etc etc ?)
 
 
 ## FEATURES <a name="features"></a>
@@ -66,9 +66,7 @@ During our simulations with Santa before Christmas Eve, it quickly became appare
 
 *Health & Safety note: our meetings with Santa were conducted over video-calls as covid travel restrictions prevented us from visiting him at the North Pole. This meant that we couldn't form a better understanding of his exercise regime, sleigh dynamics and reindeers' nutrition programme.* 
 
-To combat the issue of the ever increasing calorie intake, we added a warning light to flash at 4,750 calories, giving Santa a buffer before he slows to 5 homes/second. At this stage Santa needs to stop snacking on the milks and cookies. The light will turn off once his calorie intake is again below 4,750. 
-
-Naturally, he would cause great offence were he to leave the milk and cookies on the mantlepiece and so he would take them for the reindeers.
+To combat the issue of the ever increasing calorie intake, we added a warning light to flash at 4,750 calories, giving Santa a buffer before he slows to 5 homes/second. At this stage Santa needs to stop snacking on the milks and cookies. The light will turn off once his calorie intake is again below 4,750. Naturally, he would cause great offence were he to leave the milk and cookies on the mantlepiece and so he would take them for the reindeers.
 
 Even so, extra simulations further demonstrated that St Nick would still fall short of his target for homes to deliver too, which will be in the millions of good software developers. Santa's elves believe that they may be able to boost the metabolic rate of his reindeer through a combination of the extra milk and cookies together with a prototype dietary supplement that they've been developing. This will enable Santa to visit 200 homes per second, not 10.
 
