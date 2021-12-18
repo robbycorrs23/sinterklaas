@@ -40,16 +40,16 @@ To monitor his progress, Santa requests a dashboard that:
 2. sets his calorie target of 5,000
 3. updates and displays the following every one second:
 
-    a. his nightly calorie target of 5,000;
-    b. his total nightly calories accumulated so far;
-    c. the total number of homes who have left him milk & cookies;
-    d. the total number of homes who have left him carrots & tea;
-    e. his current delivery speed as a number of homes per second (i.e 10 or 5);
-    f. the number of homes visited so far;
-    g. the number of homes remaining;
-    h. total time.
+  1. his nightly calorie target of 5,000;
+  2. his total nightly calories accumulated so far;
+  3. the total number of homes who have left him milk & cookies;
+  4. the total number of homes who have left him carrots & tea;
+  5. his current delivery speed as a number of homes per second (i.e 10 or 5);
+  6. the number of homes visited so far;
+  7. the number of homes remaining;
+  8. total time.
 4. Buttons to start and stop
-5. At the end of the night he will see the total time taken at 3h. above
+5. At the end of the night he will see the total time taken at 3(8). above
 
 
 ### *Extra features*
