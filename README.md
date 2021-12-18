@@ -48,9 +48,9 @@ To monitor his progress, Santa requests a dashboard that:
     6. the number of homes visited so far;
     7. the number of homes remaining;
     8. total time.
-    
+
 4. Buttons to start and stop
-5. At the end of the night he will see the total time taken at 3(8). above
+5. At the end of the night he will see the total time taken at 3(viii). above
 
 
 ### *Extra features*
