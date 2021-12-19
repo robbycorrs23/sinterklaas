@@ -29,7 +29,7 @@ Santa wants an app that will:
 Our hackathon team comprised of:
 
 - Robert Corrado (twitter etc etc ?)
-- Chris Logothetis(twitter etc etc ?)
+- Chris Logothetis (<a href="https://github.com/CW-Logothetis"> GitHub </a>)(<a href="https://www.linkedin.com/in/christopher-logothetis/"> LinkedIn </a>)(<a href="https://twitter.com/CW_Logothetis"> Twitter </a>)
 - Tyler Woolcott (<a href="https://github.com/TylerWoolcott/"> GitHub </a>)(<a href="https://www.linkedin.com/in/tyler-woolcott-6066782b/"> LinkedIn </a>)(<a href="https://mobile.twitter.com/tylerwoolcott"> Twitter </a>)
 
 
@@ -94,7 +94,7 @@ INSERT vercel link:
 ## BUGS <a name="bugs"></a>
 
 - FF should be disabled until start is pressed. Currently, it can start the timer if Start hasn't been pressed.
-- If Santa enables Fast Forward mode, then enters a new number and clicks enter DURING a running simulation, the simulation will reset the Homes Target to his new submission, but will immediately start in Fast Forward mode.
+- Entering a new number and pressing Enter to submit does not stop and reset a running simulation. If Santa enables Fast Forward mode, then enters a new number and clicks enter DURING a running simulation, the simulation will reset the Homes Target to his new submission, but will immediately start in Fast Forward mode.
 - With the exception of an aria lable on the form, we have not optimised the app for assistive technologies. We have not run a colour contrast test.
 
 
