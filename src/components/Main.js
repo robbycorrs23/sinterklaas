@@ -8,7 +8,7 @@ let homesRemaining = 0;
 let timeSecs = 0;
 
 export default function Main() {
-    const [intervalId, setIntervalId] = useState(false) // previously setIntervalId was declared but not used. The StackOverflow solution said to put it above the `else` below
+    const [intervalId, setIntervalId] = useState(false)
     const [ffMode, setFfMode] = useState(false)
     const [totalHomes, setTotalHomes] = useState(0)
     const [ homesRemain, setHomesRemain ] = useState(0)
@@ -25,9 +25,7 @@ export default function Main() {
          }
     }
 
-    // Chris - added stop button from StackOverflow solution. Passing intervalId and not interval as above for stopSanta. No idea why ;) State? //
     const stopBtn = () => clearInterval(intervalId) 
-    // ---------------------------------------------- //
 
     const handleChange = (e) => {
         if (e.key === 'Enter') {
@@ -40,6 +38,9 @@ export default function Main() {
     }
 
     const resetMetrics = () => {
+
+        clearInterval(intervalId)
+
         calorieCount = 0
         setHomesRemain(0)
         homesRemaining = 0
@@ -99,13 +100,11 @@ export default function Main() {
     }
     
     return (
-    /* --- BACKGROUND - problems!!! Something different about CRA and Tailwind I think --- */
 
     //  --- MEDIA QUERIES - PORTRAIT: mobile w:470px / sm:640px / md: 768px / lg:1024px / xl:1280px ---
-    //   
     // ------------------------------------------------------------------------------------
         
-        // --- This should keep dashboard in centre of every device. Seems to with expcetion of ipad mini in safari, where it rides up a little --- /
+        // --- This should keep dashboard in centre of every device. Seems to with exception of ipad mini in safari, where it rides up a little --- /
         <div className="m-0 flex items-center justify-center h-screen">
             
 
@@ -123,7 +122,7 @@ export default function Main() {
                     
                 </div>
 
-                {/* --- INNER Screen grid - cols 1 and 6 ignore my instructions to keep to a tiny or 0 width --- */}
+                {/* --- INNER Screen grid --- */}
           
                 <div className="mt-2 mb-1 mx-3 sm:m-6 lg:px-1 grid grid-cols-[5px_minmax(1fr)_minmax(1fr)_minmax(1fr)_minmax(1fr)_5px] grid-rows-4 lg:grid-rows-2 text-sm sm:text-base lg:text-lg text-gray-300 bg-slate-800 border border-blue-400 rounded-2xl">
                     
@@ -225,6 +224,7 @@ export default function Main() {
                         > Stop
                         </button>
                         
+
                         {/* --- Reset/Fast-Forward Btn --- */}
 
                         <button className="col-start-4 w-10 h-10 sm:w-14 sm:h-14 mx-1 bg-gradient-radial border border-yellow-400 from-gray-700 via-yellow-800 to-yellow-900 rounded-full text-gray-100 text-opacity-80 opacity-90 text-xs sm:text-base focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
@@ -236,7 +236,8 @@ export default function Main() {
                             onClick={resetMetrics}
                         > Reset
                         </button>
-                                    
+
+
                         <div className="col-start-6"></div>
                     
                     </div>
