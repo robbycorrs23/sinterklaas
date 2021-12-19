@@ -31,7 +31,7 @@ export default function Main() {
         if (e.key === 'Enter') {
             e.preventDefault();
 
-            // resetMetrics()
+            resetMetrics()
             
             const newVal = parseInt(e.target.value)
             setHomesRemain(newVal)
@@ -42,7 +42,7 @@ export default function Main() {
 
     const resetMetrics = () => {
 
-        // clearInterval(intervalId)
+        clearInterval(intervalId)
 
         calorieCount = 0
         setHomesRemain(0)
