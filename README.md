@@ -30,7 +30,7 @@ Our hackathon team comprised of:
 
 - Robert Corrado (twitter etc etc ?)
 - Chris Logothetis(twitter etc etc ?)
-- Tyler Woolcott (twitter etc etc ?)
+- Tyler Woolcott (<a href="https://github.com/TylerWoolcott/"> GitHub </a>)(<a href="https://www.linkedin.com/in/tyler-woolcott-6066782b/"> LinkedIn </a>)(<a href="https://mobile.twitter.com/tylerwoolcott"> Twitter </a>)
 
 
 ## FEATURES <a name="features"></a>
@@ -62,21 +62,19 @@ Santa asked that we generate random numbers of homes leaving milk/cookies, inste
 
 Early simulations showed that the app works fine should Santa enter a target divisable by 10. But any other target results in a misfire. Therefore, when 10 homes remain, the speed will switch to 1 house per second in order to finish the < 10 homes.
 
-To improve his user experience, Santa asked for a 'Refresh' button on the dashboard, to save him refreshing his browser or re-loading the app every time he runs a simulation.
+To improve his user experience, Santa asked for a 'Refresh' button on the dashboard, to save him from refreshing his browser or re-loading the app every time he runs a simulation.
 
 During our simulations with Santa before Christmas Eve, it quickly became apparent that he would breach his 5,000 calorie limit in a matter of minutes, and it would never decrease. This would mean that Santa would spend most of the night delivering presents to five houses per second; a great many software developers would be left very disappointed the next morning.
 
-*Health & Safety note: our meetings with Santa were conducted over video-calls as covid travel restrictions prevented us from visiting him at the North Pole. This meant that we couldn't form a better understanding of his exercise regime, sleigh dynamics and reindeers' nutrition programme.* 
+*Health & Safety note: our meetings with Santa were conducted over video-calls as covid travel restrictions prevented us from visiting him at the North Pole. This meant that we couldn't form a better understanding of his exercise regime, sleigh dynamics/magic and reindeers' nutrition programme.* 
 
-To combat the issue of the ever increasing calorie intake, we added a warning light to flash at 4,750 calories, giving Santa a buffer before he slows to 5 homes/second. At this stage Santa needs to stop snacking on the milks and cookies. The light will turn off once his calorie intake is again below 4,750. Naturally, he would cause great offence were he to leave the milk and cookies on the mantlepiece and so he would take them for the reindeers.
+To combat the issue of the ever increasing calorie intake, we added a warning light to flash at 4,750 calories, giving Santa a buffer before he slows to 5 homes/second. At this stage Santa should try to stop snacking on the milks and cookies. The light will turn off once his calorie intake is again below 4,750. Naturally, he would cause great offence were he to leave the milk and cookies on the mantlepiece and so he will take them for the reindeers.
 
 Even so, extra simulations further demonstrated that St Nick would still fall short of his target for homes to deliver too, which will be in the millions of good software developers. Santa's elves believe that they may be able to boost the metabolic rate of his reindeer through a combination of the extra milk and cookies together with a prototype dietary supplement that they've been developing. This will enable Santa to visit 200 homes per second, not 10.
 
-To that end, Santa has requested a 'Fast Forward' button, which he can tap once he's feeding the milk, cookies and supplement to the reindeers. It remains to be seen whether he'll meet the home target he inputs next week.
+To that end, Santa has requested a 'Fast Forward' button, which he can tap once he's feeding the milk, cookies and supplement to the reindeers. The Fast Forward button must be clicked twice to activate, to avoid any slips.
 
-The Fast Forward button must be clicked twice to activate, to avoid any slips.
-
-Santa will have no time to properly test the elves' cocktail as supply chain issues resulting from covid have severly restricted cookie deliveries to the North Pole. Christmas Eve will be the trial run... 
+Santa will have no time to properly test the elves' cocktail as supply chain issues resulting from covid have severly restricted cookie deliveries to the North Pole. It remains to be seen whether he'll meet the Nightly Home Target that he'll input next week. Christmas Eve will be the trial run... 
 
 
 ## DEPLOY LINK
@@ -95,10 +93,9 @@ INSERT vercel link:
 
 ## BUGS <a name="bugs"></a>
 
-- During the first one second interval, Homes Remaining does not reduce by 10, but the total of Homes Visited increases by 10. Whilst Santa can visit all the homes in his target, the app will tell him that 10 homes remain.
-- We don't currently understand why the Fast Forward button needs two clicks, but it's a handy safety feature.
+- We don't currently understand why the Fast Forward button needs two clicks, but heck, it's a handy safety feature.
 - Buttons should be disabled until an input is submitted.
-- If 'refresh' is clicked whilst the simulation is running, the metrics refresh, but the simulation continues. Stop must currently be clicked before refresh.
+- FF should be disabled until start is pressed. Currently, it can start the timer if Start hasn't been pressed.
 - After refresh is clicked, a new number must be inputted.
 - With the exception of an aria lable on the form, we have not optimised the app for assistive technologies. We have not run a colour contrast test.
 
