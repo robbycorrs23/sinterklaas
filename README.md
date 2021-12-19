@@ -28,7 +28,7 @@ Santa wants an app that will:
 ## CONTRIBUTORS <a name="contributors"></a>
 Our hackathon team comprised of:
 
-- Robert Corrado (twitter etc etc ?)
+- Robert Corrado (<a href="https://www.github.com/robbycorrs23"> GitHub </a>)(<a href="https://www.linkedin.com/in/RobbyCorrs"> LinkedIn </a>)(<a href="https://www.twitter.com/robbycorrs"> Twitter </a>)
 - Chris Logothetis (<a href="https://github.com/CW-Logothetis"> GitHub </a>)(<a href="https://www.linkedin.com/in/christopher-logothetis/"> LinkedIn </a>)(<a href="https://twitter.com/CW_Logothetis"> Twitter </a>)
 - Tyler Woolcott (<a href="https://github.com/TylerWoolcott/"> GitHub </a>)(<a href="https://www.linkedin.com/in/tyler-woolcott-6066782b/"> LinkedIn </a>)(<a href="https://mobile.twitter.com/tylerwoolcott"> Twitter </a>)
 
