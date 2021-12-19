@@ -1,28 +1,65 @@
 import React, { useState } from "react";
 import InputGroup from 'react-bootstrap/InputGroup'
 import Form from 'react-bootstrap/Form'
-// import stars from 'public/images/star-bgImg-kai-pilger-unsplash.jpeg'
 
 let calorieCount = 0;
-const cookiesMilk = 15;
-const carrotsTea = -10;
 let currentSpeed = 10;
 let homesRemaining = 0;
 let timeSecs = 0;
-let cookieMilkCount = 0;
-let carrotTeaCount = 0;
 
 export default function Main() {
     const [intervalId, setIntervalId] = useState(false) // previously setIntervalId was declared but not used. The StackOverflow solution said to put it above the `else` below
     const [ffMode, setFfMode] = useState(false)
     const [totalHomes, setTotalHomes] = useState(0)
+    const [ homesRemain, setHomesRemain ] = useState(0)
+    const [ cookieMilkCount, setCookieMilkCount ] = useState(0)
+    const [ carrotTeaCount, setCarrotTeaCount ] = useState(0)
 
     let calorieTarget = 5000
     let interval;
 
 
+    const stopSanta = () => {
+        if (homesRemaining <= 0) { 
+            clearInterval(interval)
+         }
+    }
+
+    // Chris - added stop button from StackOverflow solution. Passing intervalId and not interval as above for stopSanta. No idea why ;) State? //
+    const stopBtn = () => clearInterval(intervalId) 
+    // ---------------------------------------------- //
+
+    const handleChange = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            const newVal = parseInt(e.target.value)
+            setHomesRemain(newVal)
+            homesRemaining = newVal
+            e.target.value = ""
+        }
+    }
+
+    const resetMetrics = () => {
+        calorieCount = 0
+        setHomesRemain(0)
+        homesRemaining = 0
+        timeSecs = 0
+        setCookieMilkCount(0)
+        setCarrotTeaCount(0)
+        currentSpeed = 10
+        setTotalHomes(0)
+    }
+
+    const fastForward = () => {
+        clearInterval(intervalId)
+        setFfMode(!ffMode)
+        handleClick()
+    }
+
     const handleClick = () => {
         function innerLogic() {
+            const cookiesMilk = 15;
+            const carrotsTea = -10;
             calorieCount < 5000 && homesRemaining > 10 ? currentSpeed = 10 :
                 calorieCount > 5000 && homesRemaining > 10 ? currentSpeed = 5 :
                     currentSpeed = 1
@@ -33,62 +70,32 @@ export default function Main() {
                             Math.round(Math.random()) === 1 && calorieCount > 4750 ? Math.floor(cookiesMilk * 0.5) :
                                 carrotsTea
                     )
-            nextTen.forEach(item => item === cookiesMilk ? cookieMilkCount += 1 : item === carrotsTea ? carrotTeaCount += 1 : null)
+            nextTen.forEach(item => item === cookiesMilk ? setCookieMilkCount(prev => prev += 1) : item === carrotsTea ? setCarrotTeaCount(prev => prev += 1) : null)
             const arrTotal = nextTen.reduce((acc, cur) => acc + cur);
 
-            calorieCount += arrTotal;
-            setTotalHomes(prev => prev += currentSpeed);
-            homesRemaining -= currentSpeed
-            stopSanta()
+            calorieCount += arrTotal
+            setTotalHomes(prev => prev + currentSpeed);
+            setHomesRemain(prev => prev - currentSpeed);
+
+            homesRemaining -= currentSpeed;
             
+            stopSanta()
         }
-        if (!ffMode) {
+        if (!ffMode && homesRemaining > 0) {
             interval = setInterval(() => {
                 innerLogic()
                 timeSecs += 1
             }, 1000);
-            // Chris - I added below line from the stack overflow.
-            setIntervalId(interval); 
-        } else if (ffMode) {
+            setIntervalId(interval);
+        } else if (ffMode && homesRemaining > 0) {
             interval = setInterval(() => {
                 innerLogic()
                 timeSecs += 0.05
             }, 50);
             setIntervalId(interval);
         } else {
-            alert("Please enter value for target # of homes!")
+            alert("Please enter value for target # of homes and press enter!")
         }
-    }
-
-    const stopSanta = () => {
-        if (homesRemaining === 0) { 
-            clearInterval(interval)
-         }
-    }
-
-    // Chris - added stop button from StackOverflow solution. Passing intervalId and not interval as above for stopSanta. No idea why ;) State? //
-    const stopBtn = () => clearInterval(intervalId) 
-    // ---------------------------------------------- //
-
-    const handleChange = (e) => {
-        e.preventDefault();
-        homesRemaining = e.target.value
-    }
-
-    const resetMetrics = () => {
-        calorieCount = 0
-        homesRemaining = 0
-        timeSecs = 0
-        cookieMilkCount = 0
-        carrotTeaCount = 0
-        currentSpeed = 10
-        setTotalHomes(0)
-    }
-
-    const fastForward = () => {
-        clearInterval(intervalId)
-        setFfMode(!ffMode)
-        handleClick()
     }
     
     return (
@@ -164,7 +171,7 @@ export default function Main() {
                     {/* --- Homes Remaining --- */} 
                     <div className="col-start-4 col-span-2 lg:row-start-1 lg:col-start-3 lg:col-span-1 flex flex-col items-center border-dashed border-b lg:border-r border-blue-400">
                         <div className="my-2 sm:my-3 lg:my-9 lg:px-6 text-gray-300 text-xs sm:text-base md:text-lg">Homes Remain</div>
-                        <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{homesRemaining <= 0 ? 0 : homesRemaining}</div> 
+                        <div className="mb-3 sm:mb-4 lg:mb-10 font-mono text-white text-base sm:text-lg lg:text-2xl ">{homesRemain}</div> 
                     </div>
 
                     {/* --- Delivery Speed: homes/second --- */} 
@@ -191,12 +198,12 @@ export default function Main() {
                     <InputGroup className="mt-1 mb-2 mx-auto text-center">
                         {/* <InputGroup.Text id="basic-addon1" className="m-0 py-1 text-xs sm:text-sm text-center text-gray-200">Enter Target:</InputGroup.Text> */}
                         <Form.Control
-                            className="italic py-1 lg:px-8 text-xs sm:text-sm text-center text-gray-200 placeholder:text-gray-400 bg-gray-800 border border-gray-300 rounded-full focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
-                            placeholder="Enter target"
+                            className="italic py-1 px-3 lg:px-8 text-xs sm:text-sm text-center text-gray-200 placeholder:text-gray-400 bg-gray-800 border border-gray-300 rounded-full focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1"
+                            placeholder="Type # and press enter"
                             aria-label="Input House Target for the Night"
                             aria-describedby="basic-addon1"
                             type="text"
-                            onChange={e => handleChange(e)}
+                            onKeyDown={e => handleChange(e)}
                         />
                     </InputGroup>
 
