@@ -30,6 +30,7 @@ export default function Main() {
     const handleChange = (e) => {
         if (e.key === 'Enter') {
             e.preventDefault();
+            resetMetrics()
             const newVal = parseInt(e.target.value)
             setHomesRemain(newVal)
             homesRemaining = newVal

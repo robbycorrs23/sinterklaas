@@ -70,9 +70,9 @@ During our simulations with Santa before Christmas Eve, it quickly became appare
 
 To combat the issue of the ever increasing calorie intake, we added a warning light to flash at 4,750 calories, giving Santa a buffer before he slows to 5 homes/second. At this stage Santa should try to stop snacking on the milks and cookies. The light will turn off once his calorie intake is again below 4,750. Naturally, he would cause great offence were he to leave the milk and cookies on the mantlepiece and so he will take them for the reindeers.
 
-Even so, extra simulations further demonstrated that St Nick would still fall short of his target for homes to deliver too, which will be in the millions of good software developers. Santa's elves believe that they may be able to boost the metabolic rate of his reindeer through a combination of the extra milk and cookies together with a prototype dietary supplement that they've been developing. This will enable Santa to visit 200 homes per second, not 10.
+Even so, extra simulations further demonstrated that St Nick would still fall short of his target for homes to deliver to, which will be in the millions of good software developers. Santa's elves believe that they may be able to boost the metabolic rate of his reindeer through a combination of the extra milk and cookies together with a prototype dietary supplement that they've been developing. This will enable Santa to visit 200 homes per second, not 10.
 
-To that end, Santa has requested a 'Fast Forward' button, which he can tap once he's feeding the milk, cookies and supplement to the reindeers. The Fast Forward button must be clicked twice to activate, to avoid any slips.
+To that end, Santa has requested a 'Fast Forward' button, which he can tap once he's feeding the milk, cookies and supplement to the reindeers. The Fast Forward button must be clicked twice to activate, to avoid any slips. Clicking it once turns it off.
 
 Santa will have no time to properly test the elves' cocktail as supply chain issues resulting from covid have severly restricted cookie deliveries to the North Pole. It remains to be seen whether he'll meet the Nightly Home Target that he'll input next week. Christmas Eve will be the trial run... 
 
@@ -93,10 +93,8 @@ INSERT vercel link:
 
 ## BUGS <a name="bugs"></a>
 
-- We don't currently understand why the Fast Forward button needs two clicks, but heck, it's a handy safety feature.
-- Buttons should be disabled until an input is submitted.
 - FF should be disabled until start is pressed. Currently, it can start the timer if Start hasn't been pressed.
-- After refresh is clicked, a new number must be inputted.
+- If Santa enables Fast Forward mode, then enters a new number and clicks enter DURING a running simulation, the simulation will reset the Homes Target to his new submission, but will immediately start in Fast Forward mode.
 - With the exception of an aria lable on the form, we have not optimised the app for assistive technologies. We have not run a colour contrast test.
 
 
