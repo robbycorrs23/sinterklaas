@@ -79,7 +79,7 @@ Santa will have no time to properly test the elves' cocktail as supply chain iss
 
 ## DEPLOY LINK
 
-INSERT vercel link:
+https://santa-dashboard.vercel.app/
 
 
 ## DEPENDENCIES <a name="dependencies"></a>
